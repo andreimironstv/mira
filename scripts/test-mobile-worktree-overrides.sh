@@ -64,7 +64,7 @@ out="$("$wt/scripts/mobile-worktree-overrides.sh")"
 ios="$wt/mobile/ios/Flutter/WorktreeOverrides.xcconfig"
 android="$wt/mobile/android/worktree.properties"
 [[ -f "$ios" && -f "$android" ]] || fail "worktree must write both override files"
-grep -q '^BUNDLE_IDENTIFIER = xyz\.block\.buzz\.dev\.mobile\.feature-work-1$' "$ios" \
+grep -q '^BUNDLE_IDENTIFIER = ro\.miraai\.dev\.mobile\.feature-work-1$' "$ios" \
   && pass "iOS bundle identifier keys to the sanitized worktree directory name" \
   || fail "iOS bundle identifier must key to the worktree dir, got: $(cat "$ios")"
 grep -q '^APP_DISPLAY_NAME = Mira (Fix_Thing-2)$' "$ios" \
@@ -86,7 +86,7 @@ printf '%s' "$out" | grep -q 'Worktree Feature_Work-1' \
 # ── Branch switch in the same worktree: identity stable, label follows ───────
 git -C "$wt" checkout -q -b "another/branch-name"
 "$wt/scripts/mobile-worktree-overrides.sh" > /dev/null
-grep -q '^BUNDLE_IDENTIFIER = xyz\.block\.buzz\.dev\.mobile\.feature-work-1$' "$ios" \
+grep -q '^BUNDLE_IDENTIFIER = ro\.miraai\.dev\.mobile\.feature-work-1$' "$ios" \
   && grep -q '^applicationIdSuffix=\.feature_work_1$' "$android" \
   && pass "branch switch keeps the install identity stable (per worktree)" \
   || fail "install identity must not change on branch switch"
@@ -156,7 +156,7 @@ gradle="$repo_root/mobile/android/app/build.gradle.kts"
 manifest="$repo_root/mobile/android/app/src/main/AndroidManifest.xml"
 plist="$repo_root/mobile/ios/Runner/Info.plist"
 
-grep -q '^BUNDLE_IDENTIFIER = xyz\.block\.buzz\.dev\.mobile$' "$debug_xcconfig" \
+grep -q '^BUNDLE_IDENTIFIER = ro\.miraai\.dev\.mobile$' "$debug_xcconfig" \
   && pass "Debug.xcconfig defaults to the development bundle identifier" \
   || fail "Debug.xcconfig must default to ro.miraai.dev.mobile"
 grep -q 'WorktreeOverrides.xcconfig' "$debug_xcconfig" \
@@ -176,7 +176,7 @@ grep -q '^ios_prefix="ro.miraai.dev.mobile\."$' "$clean_script" \
 grep -q 'WorktreeOverrides' "$release_xcconfig" \
   && fail "Release.xcconfig must not include WorktreeOverrides.xcconfig" \
   || pass "Release.xcconfig does not include WorktreeOverrides"
-grep -q '^BUNDLE_IDENTIFIER = xyz\.block\.buzz\.mobile$' "$release_xcconfig" \
+grep -q '^BUNDLE_IDENTIFIER = ro\.miraai\.mobile$' "$release_xcconfig" \
   && pass "Release.xcconfig keeps the production bundle identifier" \
   || fail "Release.xcconfig must keep BUNDLE_IDENTIFIER = ro.miraai.mobile"
 grep -q '^APP_DISPLAY_NAME = Mira$' "$release_xcconfig" \
@@ -271,14 +271,14 @@ chmod +x "$stub_bin/adb"
 # No xcrun stub: the iOS pass is skipped when xcrun is absent, which also
 # keeps this test honest on Linux CI.
 clean_out="$(PATH="$stub_bin:/usr/bin:/bin" bash "$clean_script" --dry-run)"
-printf '%s\n' "$clean_out" | grep -q 'xyz\.block\.buzz\.mobile\.feature_work_1' \
+printf '%s\n' "$clean_out" | grep -q 'ro\.miraai\.mobile\.feature_work_1' \
   && pass "cleanup targets worktree-suffixed Android installs" \
   || fail "cleanup must list suffixed installs, got: $clean_out"
-printf '%s\n' "$clean_out" | grep -q 'xyz\.block\.buzz\.mobile\.w_2fast' \
+printf '%s\n' "$clean_out" | grep -q 'ro\.miraai\.mobile\.w_2fast' \
   && pass "cleanup targets letter-prefixed suffixed installs" \
   || fail "cleanup must list w_-prefixed installs, got: $clean_out"
 printf '%s\n' "$clean_out" | grep -q 'mobile\.feature_work_1' || true
-if printf '%s\n' "$clean_out" | grep -Eq '(would uninstall|uninstalling).*xyz\.block\.buzz\.mobile$'; then
+if printf '%s\n' "$clean_out" | grep -Eq '(would uninstall|uninstalling).*ro\.miraai\.mobile$'; then
   fail "cleanup must never target the production Android app id"
 else
   pass "cleanup preserves the production Android app id"

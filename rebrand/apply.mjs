@@ -88,8 +88,9 @@ const FILE_RULES = [
     // App identity. Not a hyphen: Android forbids it in applicationId, and
     // Apple forbids the underscore Android would suggest, hence `miraai`.
     file: /^(?!mobile\/android\/)/,
-    from: /xyz\.block\.buzz\.(app|dev\.mobile|mobile)\b/g,
-    to: (_, id) => `ro.miraai.${id}`,
+    // Also matches the regex-escaped form used by shell test assertions.
+    from: /xyz([\x5c]*\.)block\1buzz\1(app|dev\1mobile|mobile)\b/g,
+    to: (_, dot, id) => `ro${dot}miraai${dot}${id}`,
   },
   {
     // Android: only the application ID and callback scheme. The `namespace`
