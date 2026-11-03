@@ -312,7 +312,7 @@ void main() {
     expect(find.text('Display name'), findsOneWidget);
     expect(find.text('Profile description'), findsOneWidget);
     expect(find.text('Alice'), findsOneWidget);
-    expect(find.text('Building Mira'), findsOneWidget);
+    expect(find.text('Building Buzz'), findsOneWidget);
 
     await tester.tap(find.byKey(const ValueKey('profile-display-name-row')));
     await tester.pumpAndSettle();
@@ -981,7 +981,7 @@ class _FakeProfileNotifier extends ProfileNotifier {
     this.profile = const UserProfile(
       pubkey: 'aabb',
       displayName: 'Alice',
-      about: 'Building Mira',
+      about: 'Building Buzz',
     ),
     this.failedAvatarSaves = 0,
     this.updatesProfileState = false,

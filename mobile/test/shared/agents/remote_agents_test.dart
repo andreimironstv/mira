@@ -376,7 +376,7 @@ void main() {
       ..bound = nostr.Keys('0' * 63 + '3').public;
     expect(await controller.run(controller.refresh), isFalse);
     expect(registry.calls, isEmpty);
-    expect(controller.failure, 'Mira identity: mismatch.');
+    expect(controller.failure, 'Buzz identity: mismatch.');
 
     registry.bound = fakeOwner.public;
     expect(await controller.run(controller.refresh), isTrue);
@@ -838,7 +838,7 @@ void main() {
     final controller = await _controller(registry);
     final relay = _community().relayUrl;
     await controller.load(relay);
-    expect(controller.failure, 'Mira identity: mismatch.');
+    expect(controller.failure, 'Buzz identity: mismatch.');
     registry.bound = fakeOwner.public;
     await controller.load(relay);
     expect(registry.calls, ['list-agents']);

@@ -264,7 +264,7 @@ class RemoteAgentController extends ChangeNotifier {
           'Builderlab rejected ${account.lastRejectedRequest!.path.split('/').last} '
               '(HTTP ${account.lastRejectedRequest!.status}). Retry this setup.',
         AccountFailure() => 'Builderlab: ${error.name}. Try again.',
-        AccountIdentityFailure() => 'Mira identity: ${error.name}.',
+        AccountIdentityFailure() => 'Buzz identity: ${error.name}.',
         StateError() => error.message,
         _ => 'Operation failed (${error.runtimeType}). Try again.',
       };

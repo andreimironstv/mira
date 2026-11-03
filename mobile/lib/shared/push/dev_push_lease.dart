@@ -116,7 +116,7 @@ class BuzzPushLeaseDescriptor {
     final pushKinds = _intList(push['push_kinds'], name: 'push_kinds');
     if (!buzzPushEligibleKinds.every(pushKinds.contains)) {
       throw const FormatException(
-        'NIP-11 does not advertise every Mira message kind for push',
+        'NIP-11 does not advertise every Buzz message kind for push',
       );
     }
     final hGrammar = _nonEmptyString(push['h_grammar'], name: 'h_grammar');

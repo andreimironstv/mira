@@ -2917,7 +2917,7 @@ test("repository rows identify their git host", async ({ page }) => {
     .getByTestId("repository-host-icon");
   await expect(buzzHostIcon).toHaveAttribute(
     "aria-label",
-    "Mira-hosted repository",
+    "Buzz-hosted repository",
   );
   await expect(
     page

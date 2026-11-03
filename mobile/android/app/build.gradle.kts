@@ -151,7 +151,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "ro.miraai.mira.mobile"
+        applicationId = "xyz.block.buzz.mobile"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
@@ -159,7 +159,7 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        resValue("string", "app_name", "Mira")
+        resValue("string", "app_name", "Buzz")
     }
 
     signingConfigs {
@@ -183,7 +183,7 @@ android {
             val resolvedAppName =
                 debugAppName
                     ?: worktreeAppName
-                    ?: worktreeLabel?.let { "Mira ($it)" }
+                    ?: worktreeLabel?.let { "Buzz ($it)" }
             if (resolvedAppName != null) {
                 resValue("string", "app_name", resolvedAppName)
             }

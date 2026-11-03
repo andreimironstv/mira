@@ -57,13 +57,13 @@ void main() {
           const AppListRow(
             icon: Icons.palette,
             title: 'Theme',
-            value: 'Mira',
+            value: 'Buzz',
             trailing: Icon(BuzzIcons.chevronRight, key: Key('chevron')),
           ),
         ),
       );
 
-      final value = tester.getRect(find.text('Mira'));
+      final value = tester.getRect(find.text('Buzz'));
       final chevron = tester.getRect(find.byKey(const Key('chevron')));
       // Only the row's own inter-widget gap sits between them — no flex slack.
       expect(chevron.left - value.right, closeTo(Grid.xxs, 0.5));

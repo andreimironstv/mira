@@ -27,12 +27,12 @@ function snapshotTag(href, title, siteName) {
   ];
 }
 
-test("Mira entity links do not create message preview cards", () => {
+test("Buzz entity links do not create message preview cards", () => {
   const content = `${ENTITY_HREF} then ${EXTERNAL_HREF}`;
   const candidates = extractSupportedLinkPreviews(content, RELAY_ORIGIN);
   const snapshots = parseLinkPreviewSnapshots(
     [
-      snapshotTag(ENTITY_HREF, "Forged sender title", "Definitely Real Mira"),
+      snapshotTag(ENTITY_HREF, "Forged sender title", "Definitely Real Buzz"),
       snapshotTag(EXTERNAL_HREF, "External story", "Example"),
     ],
     content,

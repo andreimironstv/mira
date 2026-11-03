@@ -740,7 +740,7 @@ fn legacy_env_sniff_ignores_user_openai_on_same_local_port() {
     assert_eq!(
         resolve_effective_relay_mesh_model_id(&rec, &[], &global(None, None)),
         None,
-        "a real user key on the mesh port must not be mistaken for Mira's preset"
+        "a real user key on the mesh port must not be mistaken for Buzz's preset"
     );
 }
 

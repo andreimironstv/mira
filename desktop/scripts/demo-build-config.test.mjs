@@ -9,18 +9,18 @@ import {
 const expected = (name, slug) => ({
   name,
   slug,
-  productName: `Mira ${name}`,
-  dmgVolumeName: `Mira ${name}`,
-  dmgFileStem: `Mira_${name.replace(/ /g, "_")}`,
-  identifier: `ro.miraai.mira.app.demo.${slug}`,
-  appDataIdentity: `ro.miraai.mira.app.demo.${slug}`,
+  productName: `Buzz ${name}`,
+  dmgVolumeName: `Buzz ${name}`,
+  dmgFileStem: `Buzz_${name.replace(/ /g, "_")}`,
+  identifier: `xyz.block.buzz.app.demo.${slug}`,
+  appDataIdentity: `xyz.block.buzz.app.demo.${slug}`,
   deepLinkScheme: `buzz-demo-${slug}`,
   keyringService: `buzz-desktop-demo.${slug}`,
   nestName: `.buzz-demo-${slug}`,
   cliName: `buzz-demo-${slug}`,
   tauriConfig: {
-    productName: `Mira ${name}`,
-    identifier: `ro.miraai.mira.app.demo.${slug}`,
+    productName: `Buzz ${name}`,
+    identifier: `xyz.block.buzz.app.demo.${slug}`,
     plugins: { "deep-link": { desktop: { schemes: [`buzz-demo-${slug}`] } } },
     bundle: { targets: ["app"] },
   },
@@ -28,8 +28,8 @@ const expected = (name, slug) => ({
 
 test("production identity remains unchanged", () => {
   assert.deepEqual(productionBuildIdentity, {
-    productName: "Mira",
-    identifier: "ro.miraai.mira.app",
+    productName: "Buzz",
+    identifier: "xyz.block.buzz.app",
     deepLinkScheme: "buzz",
     keyringService: "buzz-desktop",
     nestName: ".buzz",

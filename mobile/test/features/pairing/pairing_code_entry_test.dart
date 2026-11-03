@@ -339,7 +339,7 @@ void main() {
       expect(field, findsNothing);
       expect(find.text('Protect your identity'), findsOneWidget);
       expect(
-        find.textContaining('before sending your Mira identity'),
+        find.textContaining('before sending your Buzz identity'),
         findsOneWidget,
       );
       expect(notifier.confirmations, 0);

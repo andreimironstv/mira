@@ -102,7 +102,7 @@ function Reports({ authMode }: { authMode: AuthMode }) {
     <Page
       eyebrow="Moderation"
       title="Open reports"
-      description="Review reports across every Mira community."
+      description="Review reports across every Buzz community."
     >
       <StateView resource={resource}>
         {(reports) =>
@@ -245,7 +245,7 @@ function FeedbackList({ authMode }: { authMode: AuthMode }) {
     <Page
       eyebrow="Product"
       title="Feedback"
-      description="Recent product feedback from across Mira."
+      description="Recent product feedback from across Buzz."
     >
       <StateView resource={resource}>
         {(items) => {
@@ -1008,7 +1008,7 @@ export function App() {
             <BuzzMark />
           </span>
           <span>
-            Mira <b>Admin</b>
+            Buzz <b>Admin</b>
           </span>
         </Link>
         <nav>

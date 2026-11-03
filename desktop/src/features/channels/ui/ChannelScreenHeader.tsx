@@ -87,11 +87,11 @@ export function ChannelScreenHeader({
   const terminalButton = activeChannel ? (
     <Button
       aria-label={
-        terminalPanel.mode === "closed" ? "Open Mira Term" : "Hide Mira Term"
+        terminalPanel.mode === "closed" ? "Open Buzz Term" : "Hide Buzz Term"
       }
       onClick={toggleTerminalPanel}
       size="icon"
-      title="Mira Term (⌘J)"
+      title="Buzz Term (⌘J)"
       type="button"
       variant={terminalPanel.mode === "closed" ? "outline" : "secondary"}
     >

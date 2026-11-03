@@ -62,7 +62,7 @@ void main() {
       }
     });
 
-    test('Mira is first and remaining themes are sorted by display name', () {
+    test('Buzz is first and remaining themes are sorted by display name', () {
       final groups = themeGroups();
 
       expect(groups.paired.first.name, buzzThemeName);

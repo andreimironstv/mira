@@ -75,7 +75,7 @@ final class IdentityFilePlugin: NSObject, UIDocumentPickerDelegate,
         }
       } catch {
         // No path or key material in diagnostics. Retry on the next launch.
-        NSLog("Mira could not clean up an interrupted identity export")
+        NSLog("Buzz could not clean up an interrupted identity export")
       }
     }
   }

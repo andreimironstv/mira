@@ -156,7 +156,7 @@ export function useVoiceNoteRecorder() {
                 mountedRef.current &&
                 sessionRef.current === session
               ) {
-                setError("Mira could not prepare this voice note for upload.");
+                setError("Buzz could not prepare this voice note for upload.");
               }
             }
           }
@@ -218,8 +218,8 @@ export function useVoiceNoteRecorder() {
         (cause.name === "NotAllowedError" || cause.name === "SecurityError");
       setError(
         denied
-          ? "Allow Mira to access your microphone to record a voice note."
-          : "Mira could not start the voice recorder.",
+          ? "Allow Buzz to access your microphone to record a voice note."
+          : "Buzz could not start the voice recorder.",
       );
     }
   }, [status]);

@@ -49,7 +49,7 @@ void main() {
             overrides: [hostedFlowProvider.overrideWithValue(f.flow)],
           ),
         );
-        await pumpUntilVisible(tester, find.bySemanticsLabel('Mira'));
+        await pumpUntilVisible(tester, find.bySemanticsLabel('Buzz'));
         await revealOptionsWithSemantics(tester);
         await tester.pump();
         tester.view.physicalSize = const Size(420, 900);
@@ -363,7 +363,7 @@ Future<void> revealOptionsWithSemantics(WidgetTester tester) async {
   final handle = tester.ensureSemantics();
   try {
     await tester.pump();
-    final wordmark = tester.getSemantics(find.bySemanticsLabel('Mira'));
+    final wordmark = tester.getSemantics(find.bySemanticsLabel('Buzz'));
     final data = wordmark.getSemanticsData();
     final actionIds = data.customSemanticsActionIds!;
     expect(actionIds, hasLength(1));
@@ -372,7 +372,7 @@ Future<void> revealOptionsWithSemantics(WidgetTester tester) async {
       'More connection options',
     );
     // The action belongs to the wordmark, never an unlabelled page-sized stop.
-    expect(data.label, 'Mira');
+    expect(data.label, 'Buzz');
     expect(wordmark.rect.height, lessThan(200));
     wordmark.owner!.performAction(
       wordmark.id,

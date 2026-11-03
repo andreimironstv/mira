@@ -758,7 +758,7 @@ test("app font size and conversation density apply independently", async ({
   await expect(comfortable).toHaveAttribute("aria-pressed", "true");
   await expect(defaultSize).toHaveAttribute("aria-pressed", "true");
   await expect(densityDescription).toHaveText(
-    "Spacing in conversations and Markdown content across Mira",
+    "Spacing in conversations and Markdown content across Buzz",
   );
   await expect(fontSizeDescription).toHaveText(
     "Applies across conversations and interface text",
@@ -1163,28 +1163,28 @@ test("app font size and conversation density apply independently", async ({
   });
 });
 
-test("appearance picker — system tab (Mira follows OS)", async ({ page }) => {
+test("appearance picker — system tab (Buzz follows OS)", async ({ page }) => {
   await seedTheme(page, "buzz");
   await installMockBridge(page);
   const panel = await openAppearance(page, "system");
   await panel.screenshot({ path: `${SHOTS}/03-picker-system.png` });
 });
 
-test("appearance picker — light tab (Mira)", async ({ page }) => {
+test("appearance picker — light tab (Buzz)", async ({ page }) => {
   await seedTheme(page, "buzz");
   await installMockBridge(page);
   const panel = await openAppearance(page, "light");
   await panel.screenshot({ path: `${SHOTS}/04-picker-light.png` });
 });
 
-test("appearance picker — dark tab (Mira Dark)", async ({ page }) => {
+test("appearance picker — dark tab (Buzz Dark)", async ({ page }) => {
   await seedTheme(page, "buzz-dark");
   await installMockBridge(page);
   const panel = await openAppearance(page, "dark");
   await panel.screenshot({ path: `${SHOTS}/05-picker-dark.png` });
 });
 
-test("settings nav uses Mira active pill + hover (light)", async ({ page }) => {
+test("settings nav uses Buzz active pill + hover (light)", async ({ page }) => {
   await seedTheme(page, "buzz");
   await installMockBridge(page);
   await page.goto("/", { waitUntil: "domcontentloaded" });
@@ -1215,7 +1215,7 @@ test("settings nav uses Mira active pill + hover (light)", async ({ page }) => {
   await sidebar.screenshot({ path: `${SHOTS}/06-settings-nav-light.png` });
 });
 
-test("settings nav uses Mira active pill + hover (dark)", async ({ page }) => {
+test("settings nav uses Buzz active pill + hover (dark)", async ({ page }) => {
   await seedTheme(page, "buzz-dark");
   await installMockBridge(page);
   await page.goto("/", { waitUntil: "domcontentloaded" });
@@ -1391,7 +1391,7 @@ for (const { mode, theme } of [
   { mode: "light" as const, theme: "github-light" },
   { mode: "dark" as const, theme: "github-dark" },
 ]) {
-  test(`${theme} ignores the Mira prominent preference`, async ({ page }) => {
+  test(`${theme} ignores the Buzz prominent preference`, async ({ page }) => {
     await seedTheme(page, theme);
     await page.addInitScript(
       ({ key }) => window.localStorage.setItem(key, "true"),
@@ -1524,7 +1524,7 @@ test("settings content uses the same inset surface as the main app", async ({
   });
 });
 
-test("appearance hides accent picker under Mira", async ({ page }) => {
+test("appearance hides accent picker under Buzz", async ({ page }) => {
   await seedTheme(page, "buzz");
   await installMockBridge(page);
   const panel = await openAppearance(page, "light");
@@ -1679,7 +1679,7 @@ test("glass background is unavailable on Linux", async ({ page }) => {
     });
     Object.defineProperty(navigator, "userAgent", {
       configurable: true,
-      get: () => "Mira Desktop Linux",
+      get: () => "Buzz Desktop Linux",
     });
   }, GLASS_BACKGROUND_STORAGE_KEY);
   await installMockBridge(page);
@@ -1711,7 +1711,7 @@ test("glass background is unavailable on Linux", async ({ page }) => {
     .toBe("true");
 });
 
-test("non-Mira glass preserves the selected theme sidebar tint", async ({
+test("non-Buzz glass preserves the selected theme sidebar tint", async ({
   page,
 }) => {
   await seedTheme(page, "rose-pine-dawn");
@@ -1756,7 +1756,7 @@ test("non-Mira glass preserves the selected theme sidebar tint", async ({
   expect(tint.actual).toBe(tint.expected);
 });
 
-test("accent picker reveals/hides when toggling Mira", async ({ page }) => {
+test("accent picker reveals/hides when toggling Buzz", async ({ page }) => {
   // Start on a non-Buzz theme so the accent picker is present, then select the
   // Buzz tile — the picker should animate out and unmount. Reselecting a
   // non-Buzz tile brings it back. Asserts the presence toggle (the motion
@@ -1835,7 +1835,7 @@ test("accent picker reveals/hides when toggling Mira", async ({ page }) => {
   });
 });
 
-test("Mira light and dark modes apply live without a reload", async ({
+test("Buzz light and dark modes apply live without a reload", async ({
   page,
 }) => {
   await seedTheme(page, "buzz");
@@ -1859,7 +1859,7 @@ test("Mira light and dark modes apply live without a reload", async ({
   await expectAppliedBuzzTheme(page, "buzz");
 });
 
-test("Mira follows native system theme changes without a reload", async ({
+test("Buzz follows native system theme changes without a reload", async ({
   page,
 }) => {
   await seedTheme(page, "buzz");

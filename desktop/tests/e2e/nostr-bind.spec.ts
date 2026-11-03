@@ -458,7 +458,7 @@ test("keeps the signed response available when clipboard access fails", async ({
   await expect(
     page
       .getByTestId("nostr-bind-manual-fallback-content")
-      .getByText("Mira couldn't access the clipboard. Try again."),
+      .getByText("Buzz couldn't access the clipboard. Try again."),
   ).toBeVisible();
   await expect(page.getByTestId("nostr-bind-signed-response")).toContainText(
     "e2e-signed-nostr-binding",

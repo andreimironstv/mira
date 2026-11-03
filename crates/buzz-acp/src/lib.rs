@@ -5861,7 +5861,7 @@ mod agent_draft_prompt_tests {
     fn shared_base_prompt_teaches_portable_agent_drafts() {
         let prompt = include_str!("base_prompt.md");
         assert!(prompt.starts_with(
-            "You are an agent operating inside Mira — a Nostr-based messaging platform for human-agent collaboration.\nMira is a desktop and mobile collaboration app organized around channels, conversations, and shared work."
+            "You are an agent operating inside Buzz — a Nostr-based messaging platform for human-agent collaboration.\nBuzz is a desktop and mobile collaboration app organized around channels, conversations, and shared work."
         ));
         assert!(prompt.contains("buzz agents draft-create"));
         assert!(prompt.contains("ask for at most two things"));
@@ -5914,13 +5914,13 @@ mod agent_draft_prompt_tests {
         let prompt = include_str!("base_prompt.md");
         assert!(prompt.contains("do **not** run `buzz projects create`"));
         assert!(prompt.contains("buzz issues create --channel"));
-        assert!(prompt.contains("is not a Mira repository"));
+        assert!(prompt.contains("is not a Buzz repository"));
     }
 
     #[test]
     fn shared_base_prompt_teaches_single_command_mentions_and_preflight() {
         let prompt = include_str!("base_prompt.md");
-        assert!(prompt.contains("use the person's **exact display name as shown in Mira**"));
+        assert!(prompt.contains("use the person's **exact display name as shown in Buzz**"));
         assert!(prompt.contains("Do not expand a short display name, infer a surname"));
         assert!(prompt.contains("Preserve it exactly; do not infer, expand, or look up a surname"));
         assert!(prompt.contains("--mention <hex-or-npub>"));
@@ -13489,7 +13489,7 @@ mod observer_payload_trim_tests {
             "[Agent Memory — core]\nremember this".to_string(),
             "[Context]\nScope: thread".to_string(),
             // The triggering event body, oversized on its own.
-            format!("[Mira event: @mention]\nContent: {}", "E".repeat(90_000)),
+            format!("[Buzz event: @mention]\nContent: {}", "E".repeat(90_000)),
         ];
         let block_refs: Vec<&str> = sections.iter().map(String::as_str).collect();
         // Mirror the wire shape build_prompt_params produces: each block is its
@@ -13525,7 +13525,7 @@ mod observer_payload_trim_tests {
             "[Agent Instructions]",
             "[Agent Memory — core]",
             "[Context]",
-            "[Mira event: @mention]",
+            "[Buzz event: @mention]",
         ] {
             assert!(
                 texts.iter().any(|t| t.starts_with(header)),
@@ -13535,7 +13535,7 @@ mod observer_payload_trim_tests {
         // The oversized event body was elided in place (header kept, middle cut).
         let event_block = texts
             .iter()
-            .find(|t| t.starts_with("[Mira event: @mention]"))
+            .find(|t| t.starts_with("[Buzz event: @mention]"))
             .unwrap();
         assert!(
             event_block.contains("…[elided"),

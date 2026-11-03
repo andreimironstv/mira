@@ -56,7 +56,7 @@ void main() {
       await tester.tap(find.byKey(ValueKey(existingDesktopKeys.public)));
       await tester.pumpAndSettle();
       expect(find.byType(UserProfileSheet), findsOneWidget);
-      expect(find.textContaining('Keep Mira open'), findsNothing);
+      expect(find.textContaining('Keep Buzz open'), findsNothing);
       expect(find.textContaining('Sign in to Builderlab to see'), findsOne);
       await tester.tapAt(const Offset(5, 5));
       await tester.pumpAndSettle();

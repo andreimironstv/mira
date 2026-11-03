@@ -94,7 +94,7 @@ void main() {
       final still = beePosition();
       await tester.pump(const Duration(seconds: 1));
       expect(beePosition(), still);
-      expect(find.bySemanticsLabel('Mira'), findsOneWidget);
+      expect(find.bySemanticsLabel('Buzz'), findsOneWidget);
       expect(find.bySemanticsLabel('Animated bee'), findsNothing);
 
       reducedMotion.value = false;

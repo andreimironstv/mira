@@ -86,8 +86,8 @@ class HostedConnectSheet extends HookConsumerWidget {
             : 'Adding ${flow.addingCommunityName}…',
       HostedFlowStage.setupIdentity =>
         flow.canCreateIdentity
-            ? 'Your Mira identity is how communities recognize you. Create a new one, or import your existing identity if you already use Mira.'
-            : 'Your identity hasn’t been backed up yet. Bring it from your other device to keep using the same Mira account.',
+            ? 'Your Buzz identity is how communities recognize you. Create a new one, or import your existing identity if you already use Buzz.'
+            : 'Your identity hasn’t been backed up yet. Bring it from your other device to keep using the same Buzz account.',
       HostedFlowStage.chooseCommunities => 'Select a community',
       HostedFlowStage.communityConflict =>
         '${flow.addingCommunityName} is already saved with a different identity. '
@@ -104,7 +104,7 @@ class HostedConnectSheet extends HookConsumerWidget {
         'Review this community’s terms and privacy policy before joining.',
       HostedFlowStage.signIn => 'Complete sign-in in your browser.',
       HostedFlowStage.browserReturned =>
-        'Continue setup in your browser. Open your community in Mira when it is ready.',
+        'Continue setup in your browser. Open your community in Buzz when it is ready.',
       HostedFlowStage.complete => 'Your community is ready.',
       HostedFlowStage.blocked => hostedFlowProblemMessage(flow.problem),
     };
@@ -131,7 +131,7 @@ class HostedConnectSheet extends HookConsumerWidget {
       if (!fullScreen && stage == HostedFlowStage.setupIdentity) ...[
         Text(
           flow.canCreateIdentity
-              ? 'Create or import a Mira identity'
+              ? 'Create or import a Buzz identity'
               : 'Bring your identity with you',
           style: context.textTheme.titleLarge?.copyWith(
             fontWeight: FontWeight.w600,
@@ -165,7 +165,7 @@ class HostedConnectSheet extends HookConsumerWidget {
               foregroundColor: WidgetStatePropertyAll(context.colors.onPrimary),
             ),
             onPressed: flow.createIdentity,
-            child: const Text('Create my Mira identity'),
+            child: const Text('Create my Buzz identity'),
           ),
           const SizedBox(height: Grid.xxs),
           TextButton(
@@ -272,7 +272,7 @@ class HostedConnectSheet extends HookConsumerWidget {
     final title = switch (stage) {
       HostedFlowStage.setupIdentity =>
         flow.canCreateIdentity
-            ? 'Create or import a Mira identity'
+            ? 'Create or import a Buzz identity'
             : 'Bring your identity with you',
       HostedFlowStage.chooseIdentity => 'Choose your identity',
       HostedFlowStage.working =>

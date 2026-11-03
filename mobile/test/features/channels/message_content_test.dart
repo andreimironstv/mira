@@ -838,14 +838,14 @@ void main() {
       testWidgets('renders markdown link', (tester) async {
         await tester.pumpWidget(
           _testable(
-            const MessageContent(content: 'Check [Mira](https://example.com)'),
+            const MessageContent(content: 'Check [Buzz](https://example.com)'),
           ),
         );
 
         final allText = _allRichText(tester);
-        expect(allText, contains('Mira'));
+        expect(allText, contains('Buzz'));
         // Should not show raw markdown syntax.
-        expect(allText, isNot(contains('[Mira]')));
+        expect(allText, isNot(contains('[Buzz]')));
         expect(allText, isNot(contains('(https://example.com)')));
       });
 
@@ -876,7 +876,7 @@ void main() {
         );
       });
 
-      testWidgets('renders and routes bare Mira message links', (tester) async {
+      testWidgets('renders and routes bare Buzz message links', (tester) async {
         const url =
             'buzz://message?channel=580ca78b-9dae-46f3-8854-bd671853ba32&id=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
 
@@ -901,7 +901,7 @@ void main() {
         );
       });
 
-      testWidgets('keeps Markdown delimiters outside bare Mira links', (
+      testWidgets('keeps Markdown delimiters outside bare Buzz links', (
         tester,
       ) async {
         const url =
@@ -964,7 +964,7 @@ void main() {
         }
       });
 
-      testWidgets('excludes sentence punctuation from bare Mira links', (
+      testWidgets('excludes sentence punctuation from bare Buzz links', (
         tester,
       ) async {
         const messageUrl =
@@ -1011,7 +1011,7 @@ void main() {
         );
       });
 
-      testWidgets('renders and routes autolinked Mira thread links', (
+      testWidgets('renders and routes autolinked Buzz thread links', (
         tester,
       ) async {
         const url =
@@ -1040,7 +1040,7 @@ void main() {
         );
       });
 
-      testWidgets('renders and routes bare Mira join links', (tester) async {
+      testWidgets('renders and routes bare Buzz join links', (tester) async {
         const url =
             'buzz://join?relay=wss%3A%2F%2Frelay.example.com&code=invite-1';
 
@@ -1064,7 +1064,7 @@ void main() {
         );
       });
 
-      testWidgets('renders and routes bare Mira channel links', (tester) async {
+      testWidgets('renders and routes bare Buzz channel links', (tester) async {
         const url = 'buzz://channel/580ca78b-9dae-46f3-8854-bd671853ba32';
 
         await tester.pumpWidget(
@@ -1086,7 +1086,7 @@ void main() {
         );
       });
 
-      testWidgets('renders and routes labeled Mira channel links', (
+      testWidgets('renders and routes labeled Buzz channel links', (
         tester,
       ) async {
         const url = 'buzz://channel/580ca78b-9dae-46f3-8854-bd671853ba32';
@@ -1109,7 +1109,7 @@ void main() {
         );
       });
 
-      testWidgets('routes rendered Mira channel links through callback', (
+      testWidgets('routes rendered Buzz channel links through callback', (
         tester,
       ) async {
         const channelId = '580ca78b-9dae-46f3-8854-bd671853ba32';
@@ -1135,7 +1135,7 @@ void main() {
         expect(container.read(pendingDeepLinkProvider), isNull);
       });
 
-      testWidgets('renders and routes autolinked Mira channel links', (
+      testWidgets('renders and routes autolinked Buzz channel links', (
         tester,
       ) async {
         const url = 'buzz://channel/580ca78b-9dae-46f3-8854-bd671853ba32';
@@ -1158,7 +1158,7 @@ void main() {
         );
       });
 
-      testWidgets('leaves malformed Mira channel forms as plain text', (
+      testWidgets('leaves malformed Buzz channel forms as plain text', (
         tester,
       ) async {
         const url =
@@ -1304,7 +1304,7 @@ void main() {
         expect(tester.getSize(preview), before);
       });
 
-      testWidgets('uses the shared Mira loader while a voice note loads', (
+      testWidgets('uses the shared Buzz loader while a voice note loads', (
         tester,
       ) async {
         const url = 'https://example.com/media/loading-voice-note.mp4';
@@ -2784,8 +2784,8 @@ Photos
       });
     });
 
-    group('Mira permalink chips', () {
-      testWidgets('keeps authored Mira labels as ordinary links', (
+    group('Buzz permalink chips', () {
+      testWidgets('keeps authored Buzz labels as ordinary links', (
         tester,
       ) async {
         final owner = 'ab' * 32;
@@ -2817,7 +2817,7 @@ Photos
         }
       });
 
-      testWidgets('preserves formatting in authored Mira labels', (
+      testWidgets('preserves formatting in authored Buzz labels', (
         tester,
       ) async {
         const channelId = '580ca78b-9dae-46f3-8854-bd671853ba32';

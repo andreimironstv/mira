@@ -1,7 +1,7 @@
 import { expect, test, type Page } from "@playwright/test";
 import { installMockBridge } from "../helpers/bridge";
 
-const TERM = 'section[aria-label="Mira Term"]';
+const TERM = 'section[aria-label="Buzz Term"]';
 const NAMED = 0x0100_0000;
 const FG = NAMED | 256;
 const BG = NAMED | 257;
@@ -169,7 +169,7 @@ async function reveal(page: Page) {
     .toBeGreaterThanOrEqual(180);
 }
 
-test("project terminal button opens Mira Term for the repository", async ({
+test("project terminal button opens Buzz Term for the repository", async ({
   page,
 }) => {
   await page.setViewportSize({ width: 1280, height: 800 });
@@ -197,7 +197,7 @@ test("project terminal button opens Mira Term for the repository", async ({
   await expect(page.locator(TERM)).toBeVisible();
 });
 
-test("scrollback: wheel over Mira Term reaches terminal_scroll", async ({
+test("scrollback: wheel over Buzz Term reaches terminal_scroll", async ({
   page,
 }) => {
   await reveal(page);
@@ -241,7 +241,7 @@ test("terminal viewport click retains keyboard input ownership", async ({
     .toContain("FOCUS_KEYSTROKE");
 });
 
-test("concealed terminal viewport does not steal Mira focus", async ({
+test("concealed terminal viewport does not steal Buzz focus", async ({
   page,
 }) => {
   await reveal(page);

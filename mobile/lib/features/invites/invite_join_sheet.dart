@@ -121,7 +121,7 @@ class InviteJoinSheet extends ConsumerWidget {
             Text(
               isStarterSetupRecovery
                   ? 'Finish setting up'
-                  : 'Join this Mira community?',
+                  : 'Join this Buzz community?',
               style: context.textTheme.titleLarge,
             ),
             const SizedBox(height: Grid.xxs),

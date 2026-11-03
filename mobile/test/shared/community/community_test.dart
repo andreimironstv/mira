@@ -5,7 +5,7 @@ void main() {
   test('existing records default to device authentication', () {
     final community = Community.fromJson({
       'id': 'one',
-      'name': 'Mira',
+      'name': 'Buzz',
       'relayUrl': 'https://relay.test',
       'addedAt': '2026-08-05T00:00:00.000Z',
     });
@@ -39,7 +39,7 @@ void main() {
   test('community settings round trip', () {
     final community = Community(
       id: 'one',
-      name: 'Mira',
+      name: 'Buzz',
       relayUrl: 'https://relay.test',
       sensitiveActionPolicy: SensitiveActionPolicy.enabled,
       pushLeaseInstallationId: 'a' * 32,
@@ -57,7 +57,7 @@ void main() {
     test('saved push preference $enabled survives loading and copying', () {
       final community = Community.fromJson({
         'id': 'one',
-        'name': 'Mira',
+        'name': 'Buzz',
         'relayUrl': 'https://relay.test',
         'pushNotificationsEnabledV2': enabled,
         'pushNotificationsEnabled': !enabled,
@@ -96,7 +96,7 @@ void main() {
     expect(
       () => Community.fromJson({
         'id': 'one',
-        'name': 'Mira',
+        'name': 'Buzz',
         'relayUrl': 'https://relay.test',
         'pushLeaseInstallationId': 'not-canonical',
         'addedAt': '2026-08-05T00:00:00.000Z',

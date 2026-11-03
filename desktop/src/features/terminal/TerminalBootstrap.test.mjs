@@ -378,12 +378,12 @@ test("opening a tab keeps terminal ownership while its attachment is pending", a
   );
 
   attachResolver = () => {};
-  fireEvent.click(view.getByLabelText("New Mira Term tab"));
+  fireEvent.click(view.getByLabelText("New Buzz Term tab"));
   await waitFor(() => assert.equal(typeof attachResolver, "function"));
   assert.equal(
     substrate.dataset.terminalOwner,
     "terminal",
-    "an attaching session must not force the substrate back to Mira",
+    "an attaching session must not force the substrate back to Buzz",
   );
   assert.equal(view.getAllByRole("tab").length, 2);
 

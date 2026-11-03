@@ -19,12 +19,12 @@ const PROJECT_REPO_UNAVAILABLE_PRESENTATIONS: Record<
 > = {
   authentication: {
     description:
-      "Mira could not authenticate with this repository. Check your access and try again.",
+      "Buzz could not authenticate with this repository. Check your access and try again.",
     title: "Repository access failed",
   },
   missing: {
     description:
-      "The project announcement exists, but its git repository was not found on the Mira relay.",
+      "The project announcement exists, but its git repository was not found on the Buzz relay.",
     title: "Repository not initialized",
   },
   access: {
@@ -39,7 +39,7 @@ const PROJECT_REPO_UNAVAILABLE_PRESENTATIONS: Record<
   },
   network: {
     description:
-      "The Mira git service could not be reached. Check your connection and try again.",
+      "The Buzz git service could not be reached. Check your connection and try again.",
     title: "Couldn’t reach repository",
   },
   ref: {
@@ -49,7 +49,7 @@ const PROJECT_REPO_UNAVAILABLE_PRESENTATIONS: Record<
   },
   unknown: {
     description:
-      "Mira could not load this repository. Try again or contact the project owner.",
+      "Buzz could not load this repository. Try again or contact the project owner.",
     title: "Repository unavailable",
   },
 };

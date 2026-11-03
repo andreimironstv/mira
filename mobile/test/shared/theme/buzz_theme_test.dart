@@ -12,7 +12,7 @@ const _buzzGradient = LinearGradient(
 );
 
 void main() {
-  group('Mira theme catalog entries', () {
+  group('Buzz theme catalog entries', () {
     test('both halves are in the catalog', () {
       expect(findTheme(buzzThemeName), isNotNull);
       expect(findTheme(buzzDarkThemeName), isNotNull);
@@ -39,11 +39,11 @@ void main() {
       expect(themePairFor(buzzDarkThemeName), buzzThemeName);
     });
 
-    test('appear as a single System-mode option labelled "Mira"', () {
+    test('appear as a single System-mode option labelled "Buzz"', () {
       final paired = themeGroups().paired.map((t) => t.name);
       expect(paired, contains(buzzThemeName));
       expect(paired, isNot(contains(buzzDarkThemeName)));
-      expect(pairedThemeLabel(buzzThemeName), 'Mira');
+      expect(pairedThemeLabel(buzzThemeName), 'Buzz');
     });
 
     test('resolve across brightnesses like any other pair', () {
@@ -84,7 +84,7 @@ void main() {
       expect(find.byType(NavigationBackdrop), findsOneWidget);
     });
 
-    testWidgets('non-Mira themes keep the frosted surface fill', (
+    testWidgets('non-Buzz themes keep the frosted surface fill', (
       tester,
     ) async {
       await tester.pumpWidget(harness(AppTheme.light()));
@@ -96,7 +96,7 @@ void main() {
       expect(find.byType(NavigationBackdrop), findsOneWidget);
     });
 
-    testWidgets('Mira section labels use 80% neutral foreground', (
+    testWidgets('Buzz section labels use 80% neutral foreground', (
       tester,
     ) async {
       await tester.pumpWidget(
@@ -110,7 +110,7 @@ void main() {
       );
     });
 
-    testWidgets('navigation roles inherit non-Mira theme tokens', (
+    testWidgets('navigation roles inherit non-Buzz theme tokens', (
       tester,
     ) async {
       const primaryForeground = Color(0xFF123456);
@@ -144,7 +144,7 @@ void main() {
   });
 
   group('isBuzzTheme', () {
-    test('matches only the Mira pair', () {
+    test('matches only the Buzz pair', () {
       expect(isBuzzTheme(buzzThemeName), isTrue);
       expect(isBuzzTheme(buzzDarkThemeName), isTrue);
       expect(isBuzzTheme('github-light'), isFalse);

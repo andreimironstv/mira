@@ -148,8 +148,8 @@ export function getBuzzToolInfo(title: string): BuzzToolInfo | null {
     return {
       icon: Workflow,
       label: isRead
-        ? "Reads workflow state from Mira."
-        : "Updates workflow state in Mira.",
+        ? "Reads workflow state from Buzz."
+        : "Updates workflow state in Buzz.",
       tone: isWrite ? "write" : "read",
     };
   }
@@ -161,8 +161,8 @@ export function getBuzzToolInfo(title: string): BuzzToolInfo | null {
     return {
       icon: Hash,
       label: isRead
-        ? "Reads channel context from the Mira relay."
-        : "Changes channel state in the Mira relay.",
+        ? "Reads channel context from the Buzz relay."
+        : "Changes channel state in the Buzz relay.",
       tone: isWrite ? "write" : "read",
     };
   }
@@ -174,15 +174,15 @@ export function getBuzzToolInfo(title: string): BuzzToolInfo | null {
     return {
       icon: Users,
       label: isRead
-        ? "Reads Mira identity or presence data."
-        : "Updates Mira identity or membership data.",
+        ? "Reads Buzz identity or presence data."
+        : "Updates Buzz identity or membership data.",
       tone: isWrite ? "write" : "admin",
     };
   }
   if (name.includes("search") || name === "get_feed") {
     return {
       icon: Search,
-      label: "Searches relay-visible Mira history.",
+      label: "Searches relay-visible Buzz history.",
       tone: "read",
     };
   }
@@ -193,14 +193,14 @@ export function getBuzzToolInfo(title: string): BuzzToolInfo | null {
   ) {
     return {
       icon: Send,
-      label: "Publishes relay-visible Mira activity.",
+      label: "Publishes relay-visible Buzz activity.",
       tone: "write",
     };
   }
 
   return {
     icon: MessageSquare,
-    label: isRead ? "Reads from Mira." : "Writes to Mira.",
+    label: isRead ? "Reads from Buzz." : "Writes to Buzz.",
     tone: isWrite ? "write" : "read",
   };
 }

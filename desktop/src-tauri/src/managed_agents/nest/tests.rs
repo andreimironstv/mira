@@ -481,7 +481,7 @@ fn refresh_agents_md_upgrades_attribution_and_preserves_owned_content() {
     let agents_md = root.join("AGENTS.md");
     fs::write(
         &agents_md,
-        "# Mira Nest\n\n## Git Commit Identity\n\n\
+        "# Buzz Nest\n\n## Git Commit Identity\n\n\
          - **Human sign-off (required):** every commit MUST include a `Signed-off-by`.\n\n\
          <!-- BEGIN BUZZ MANAGED — regenerated automatically, do not edit below -->\n\
          ## Active Agents\n\n| Name | Persona | How to address |\n\
@@ -532,7 +532,7 @@ fn refresh_agents_md_preserves_managed_section() {
     let content = fs::read_to_string(&agents_md).unwrap();
     // Static content should be refreshed (from template).
     assert!(
-        content.starts_with("# Mira Nest"),
+        content.starts_with("# Buzz Nest"),
         "template header must be present"
     );
     // Managed section should be preserved.

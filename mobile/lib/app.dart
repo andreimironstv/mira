@@ -342,7 +342,7 @@ class App extends HookConsumerWidget {
     return MaterialApp(
       navigatorKey: _mobileRootNavigatorKey,
       navigatorObservers: [appRouteObserver],
-      title: 'Mira',
+      title: 'Buzz',
       debugShowCheckedModeBanner: false,
       theme: mobileAppearanceTheme(Brightness.light, communityTheme.accent),
       darkTheme: mobileAppearanceTheme(Brightness.dark, communityTheme.accent),
@@ -443,7 +443,7 @@ class _SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: BuzzLoadingIndicator(size: 56, semanticLabel: 'Starting Mira'),
+        child: BuzzLoadingIndicator(size: 56, semanticLabel: 'Starting Buzz'),
       ),
     );
   }

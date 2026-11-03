@@ -109,7 +109,7 @@ for (const [label, input, expectedHref] of EXACT_LINK_PASTE_ACCEPTED_CASES) {
   });
 }
 
-test("exact link paste canonicalizes Mira links", () => {
+test("exact link paste canonicalizes Buzz links", () => {
   assert.deepEqual(
     exactLinkPaste(
       `BUZZ://channel/${CHANNEL_ID.toUpperCase()}/${CHANNEL_MESSAGE_ID.toUpperCase()}`,
@@ -144,7 +144,7 @@ for (const [label, input, expectedHref] of [
   ["exact http", "https://example.com", "https://example.com"],
   ["wrapped http", "<https://example.com>", "https://example.com"],
   [
-    "canonical Mira link",
+    "canonical Buzz link",
     CHANNEL_MESSAGE_HREF,
     `buzz://message?channel=${CHANNEL_ID}&id=${CHANNEL_MESSAGE_ID}`,
   ],
@@ -272,7 +272,7 @@ test("paste handler links selected text instead of replacing it", () => {
   assert.deepEqual(view.state.storedMarks, []);
 });
 
-test("paste handler canonicalizes Mira links over selected text", () => {
+test("paste handler canonicalizes Buzz links over selected text", () => {
   const doc = document(paragraph(text("selected")));
   const view = createMockView(stateFromDocument(doc, 1, 9));
   const event = createPasteEvent(CHANNEL_MESSAGE_HREF);
@@ -534,7 +534,7 @@ test("real markdown-it parsing materializes a restored message link", () => {
   assert.match(html, /data-href="buzz:\/\/message\?channel=.*&amp;id=/);
 });
 
-test("real markdown-it parsing materializes mixed Mira permalink chips", () => {
+test("real markdown-it parsing materializes mixed Buzz permalink chips", () => {
   const md = new MarkdownIt();
   registerComposerMessageLinkMarkdownIt(md, {
     resolveChannelName: (channelId) =>

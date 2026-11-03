@@ -137,7 +137,7 @@ class _SasVerificationView extends HookConsumerWidget {
           const SizedBox(height: Grid.xs),
           if (!fullScreen)
             Text(
-              '$biometricLabel to confirm it’s you before sending your Mira identity to another device.',
+              '$biometricLabel to confirm it’s you before sending your Buzz identity to another device.',
               textAlign: TextAlign.center,
               style: OnboardingTypography.subtitle.copyWith(
                 color: context._onboardingMutedInk,
@@ -259,7 +259,7 @@ class _SasVerificationView extends HookConsumerWidget {
             ? 'Code confirmed'
             : 'Enter pairing code',
         subtitle: showProtection
-            ? '$biometricLabel to confirm it’s you before sending your Mira identity to another device.'
+            ? '$biometricLabel to confirm it’s you before sending your Buzz identity to another device.'
             : codeAccepted.value
             ? null
             : 'Enter the six-digit code shown on your desktop.',

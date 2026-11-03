@@ -5,7 +5,7 @@ import { buildCreateProjectAgents } from "./useCreateProjectFormSettings.ts";
 
 const runtime = {
   id: "buzz-agent",
-  label: "Mira Agent",
+  label: "Buzz Agent",
   availability: "available",
   command: "buzz-agent",
   binaryPath: "/bin/buzz-agent",

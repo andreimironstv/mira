@@ -41,7 +41,7 @@ const INHERIT_ALLOWLIST: &[&str] = &[
 /// terminal happened to launch the desktop app.
 const OVERRIDES: &[(&str, &str)] = &[
     ("TERM", "xterm-256color"),
-    ("TERM_PROGRAM", "Mira"),
+    ("TERM_PROGRAM", "Buzz"),
     ("COLORTERM", "truecolor"),
 ];
 

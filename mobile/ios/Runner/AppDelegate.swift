@@ -589,7 +589,7 @@ import os.log
       _, error in
       if let error {
         os_log(
-          "Mira notification authorization request failed: %{public}@",
+          "Buzz notification authorization request failed: %{public}@",
           type: .error,
           error.localizedDescription
         )

@@ -27,7 +27,7 @@ function createMemoryStorage(initial = {}) {
   };
 }
 
-test("migrateLegacyCommunityStorage promotes current Mira workspace state", () => {
+test("migrateLegacyCommunityStorage promotes current Buzz workspace state", () => {
   const storage = createMemoryStorage({
     "buzz-workspaces": '[{"id":"current"}]',
     "buzz-active-workspace-id": "current",

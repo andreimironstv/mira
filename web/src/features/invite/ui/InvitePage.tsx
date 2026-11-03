@@ -196,11 +196,11 @@ export function InvitePage({ code }: { code: string }) {
   return (
     <div className="invite-page">
       <BeeField count={24} sizeScale={0.75} zIndex={-1} />
-      <img className="invite-mark" src={buzzMark} alt="Mira" />
+      <img className="invite-mark" src={buzzMark} alt="Buzz" />
       <div className="invite-stack">
         <div className="invite-card">
           <h1>You're invited</h1>
-          <p className="invite-intro">Join your community on Mira.</p>
+          <p className="invite-intro">Join your community on Buzz.</p>
           <InviteCommunity relay={relay} host={host} />
 
           <div
@@ -246,7 +246,7 @@ export function InvitePage({ code }: { code: string }) {
                 <a
                   href={`buzz://join?relay=${encodeURIComponent(relay)}&code=${encodeURIComponent(code)}`}
                 >
-                  Accept invite in Mira
+                  Accept invite in Buzz
                 </a>
               </Button>
             ) : (
@@ -259,7 +259,7 @@ export function InvitePage({ code }: { code: string }) {
                 disabled={disabled}
                 onClick={openInvite}
               >
-                Accept invite in Mira
+                Accept invite in Buzz
               </Button>
             )}
             {browserJoinError ? (
@@ -285,7 +285,7 @@ export function InvitePage({ code }: { code: string }) {
               setShowMacChoice(true);
             }}
           >
-            Download Mira
+            Download Buzz
           </a>
         </p>
       </div>
@@ -307,7 +307,7 @@ export function InvitePage({ code }: { code: string }) {
                   Which Mac do you have?
                 </h2>
                 <p className="mt-2 text-sm text-black/60">
-                  Mira for Mac requires Apple Silicon. Intel Macs are not
+                  Buzz for Mac requires Apple Silicon. Intel Macs are not
                   supported.
                 </p>
               </div>

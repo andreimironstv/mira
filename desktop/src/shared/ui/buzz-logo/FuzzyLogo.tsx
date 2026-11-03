@@ -25,7 +25,7 @@ export type FuzzyLogoProps = {
 export function FuzzyLogo({
   fuzz = true,
   className,
-  ariaLabel = "Mira logo",
+  ariaLabel = "Buzz logo",
   loop = false,
   loopRestSeconds = 0,
   pulse = true,

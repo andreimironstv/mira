@@ -19,7 +19,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Mira</string>
+	<string>Buzz</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -48,15 +48,15 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSFaceIDUsageDescription</key>
-	<string>Mira uses Face ID to confirm sensitive identity transfers.</string>
+	<string>Buzz uses Face ID to confirm sensitive identity transfers.</string>
 	<key>NSCameraUsageDescription</key>
-	<string>Mira uses the camera to take profile photos and animated avatars, attach photos to messages, and scan QR codes for device pairing.</string>
+	<string>Buzz uses the camera to take profile photos and animated avatars, attach photos to messages, and scan QR codes for device pairing.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Mira needs microphone access so you can speak in Huddles and record voice notes.</string>
+	<string>Buzz needs microphone access so you can speak in Huddles and record voice notes.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Mira uses your photo library to select profile photos and images to attach to messages.</string>
+	<string>Buzz uses your photo library to select profile photos and images to attach to messages.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Mira needs permission to save images to your photo library.</string>
+	<string>Buzz needs permission to save images to your photo library.</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>INSendMessageIntent</string>

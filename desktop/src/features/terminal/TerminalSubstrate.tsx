@@ -475,7 +475,7 @@ export function TerminalSubstrate({
 
   return (
     <section
-      aria-label="Mira Term"
+      aria-label="Buzz Term"
       className="buzz-terminal-substrate"
       data-terminal-mode={mode}
       data-terminal-owner={owner}
@@ -505,7 +505,7 @@ export function TerminalSubstrate({
     >
       {mode === "docked" ? (
         <hr
-          aria-label="Resize Mira Term"
+          aria-label="Resize Buzz Term"
           aria-orientation="horizontal"
           aria-valuemax={Math.round(window.innerHeight * 0.7)}
           aria-valuemin={180}
@@ -646,7 +646,7 @@ export function TerminalSubstrate({
             </div>
           ))}
           <button
-            aria-label="New Mira Term tab"
+            aria-label="New Buzz Term tab"
             className="buzz-terminal-new-tab"
             onClick={() => runTabAction(onNewSession)}
             type="button"
@@ -657,7 +657,7 @@ export function TerminalSubstrate({
         <div className="buzz-terminal-readout">
           <button
             aria-label={
-              mode === "maximized" ? "Restore Mira Term" : "Maximize Mira Term"
+              mode === "maximized" ? "Restore Buzz Term" : "Maximize Buzz Term"
             }
             className="buzz-terminal-window-action"
             onClick={() =>
@@ -668,7 +668,7 @@ export function TerminalSubstrate({
             {mode === "maximized" ? <Minimize2 /> : <Maximize2 />}
           </button>
           <button
-            aria-label="Hide Mira Term"
+            aria-label="Hide Buzz Term"
             className="buzz-terminal-window-action"
             onClick={onHide}
             type="button"
@@ -806,7 +806,7 @@ export function TerminalSubstrate({
         />
       </div>
       <div aria-live="polite" className="sr-only">
-        {owner === "terminal" ? "Mira Term mode" : "Mira mode"}
+        {owner === "terminal" ? "Buzz Term mode" : "Buzz mode"}
       </div>
     </section>
   );

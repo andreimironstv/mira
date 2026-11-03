@@ -55,7 +55,7 @@
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:scheme="ro.miraai.mira.mobile"/>
+                <data android:scheme="xyz.block.buzz.mobile"/>
             </intent-filter>
             <!-- Disable Flutter's built-in deeplink handler; app_links owns
                  incoming URLs so they can be routed with app state in Dart. -->

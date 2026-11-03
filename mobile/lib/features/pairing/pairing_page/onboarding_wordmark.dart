@@ -105,7 +105,7 @@ class _OnboardingWordmarkState extends State<OnboardingWordmark>
   @override
   Widget build(BuildContext context) {
     return Semantics(
-      label: 'Mira',
+      label: 'Buzz',
       image: true,
       child: ExcludeSemantics(
         child: RepaintBoundary(

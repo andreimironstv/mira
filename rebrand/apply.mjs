@@ -75,14 +75,19 @@ const PROTECTED_LINE = [
 ];
 
 // `\b` misses the name right after an escaped newline or tab, as in "\nBuzz".
-// A lowercase-insensitive host such as "Buzz.Example" is test input, not the name.
+// A host such as "Buzz.Example" is test input, not the name, and "X-Buzz-Live-ID"
+// or "Buzz-Chat" is a protocol header or fixture.
 const PRODUCT_NAME =
-  /(?:(?<=[\x5c][ntr])|\b)Buzz\b(?!\.(?!(?:app|exe|dmg|iconset)\b)[A-Za-z])/g;
+  /(?:(?<=[\x5c][ntr])|(?<!\bX-)\b)Buzz\b(?!-[A-Z]|\.(?!(?:app|exe|dmg|iconset)\b)[A-Za-z])/g;
 
 const markSvg = () =>
   readFileSync(join(ROOT, "rebrand/brand/mira-mark.svg"), "utf8")
     .trim()
     .replace("<svg ", '<svg class="bee" fill="currentColor" ');
+
+// Doc comments here are the --help text clap prints.
+const CLI_HELP =
+  /^crates\/(buzz-cli\/src\/|buzz-acp\/src\/config\.rs$|buzz-admin\/src\/main\.rs$)/;
 
 // Targeted edits for what the word rule cannot express.
 const FILE_RULES = [
@@ -180,7 +185,9 @@ function inScope(path) {
 /** The branded form of a file's text. Pure, so sync can compare it to history. */
 export function transform(path, text) {
   if (!inScope(path)) return text;
-  const comment = COMMENT_BY_EXT[path.split(".").pop()];
+  const comment = CLI_HELP.test(path)
+    ? /^s*(//(?!/)|/*|*)/
+    : COMMENT_BY_EXT[path.split(".").pop()];
   let out = text;
   if (out.includes("Buzz")) {
     out = out

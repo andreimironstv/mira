@@ -24,7 +24,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 void main() {
   setUp(() {
     PackageInfo.setMockInitialValues(
-      appName: 'Mira',
+      appName: 'Buzz',
       packageName: 'xyz.block.buzz',
       version: '0.16.0',
       buildNumber: '432',
@@ -41,7 +41,7 @@ void main() {
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
       PackageInfo.setMockInitialValues(
-        appName: 'Mira',
+        appName: 'Buzz',
         packageName: 'xyz.block.buzz',
         version: '0.16.0',
         buildNumber: buildNumber,

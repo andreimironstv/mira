@@ -124,14 +124,14 @@ function IdentityKeyHelpBody() {
   return (
     <>
       <p>
-        Mira will create a Nostr identity with two parts: a private key that
+        Buzz will create a Nostr identity with two parts: a private key that
         signs you in and a public key you can safely share. You can find your
-        public identity anytime in Mira settings.
+        public identity anytime in Buzz settings.
       </p>
       <p>
-        This identity belongs to you, not Mira, and can move with you to another
+        This identity belongs to you, not Buzz, and can move with you to another
         device or compatible Nostr app. Because only you control the private
-        key, Mira can’t reset or recover it. Keep a backup somewhere safe, and
+        key, Buzz can’t reset or recover it. Keep a backup somewhere safe, and
         never share it.
       </p>
     </>

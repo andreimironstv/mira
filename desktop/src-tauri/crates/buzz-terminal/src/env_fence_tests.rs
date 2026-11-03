@@ -129,7 +129,7 @@ fn fence_still_delivers_the_terminal_contract() {
     seed_secrets();
     let out = fenced_child_environment();
 
-    for (key, value) in [("TERM", "xterm-256color"), ("TERM_PROGRAM", "Mira")] {
+    for (key, value) in [("TERM", "xterm-256color"), ("TERM_PROGRAM", "Buzz")] {
         assert!(
             out.lines().any(|line| line == format!("{key}={value}")),
             "{key} missing from child environment:\n{out}"
@@ -195,7 +195,7 @@ fn child_path_is_free_of_buzz_toolchain() {
         .expect("child has a PATH");
     assert!(
         !path_line.contains("buzz-terminal-path-canary"),
-        "Mira's toolchain leaked into the child PATH: {path_line}"
+        "Buzz's toolchain leaked into the child PATH: {path_line}"
     );
 
     // The reachability arm: run `command -v` for the canary inside the fence.
@@ -205,7 +205,7 @@ fn child_path_is_free_of_buzz_toolchain() {
     );
     assert!(
         resolved.contains("CANARY_UNREACHABLE"),
-        "a Mira-only executable was reachable from the child shell: {resolved}"
+        "a Buzz-only executable was reachable from the child shell: {resolved}"
     );
 }
 

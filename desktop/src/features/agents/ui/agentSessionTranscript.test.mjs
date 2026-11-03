@@ -80,7 +80,7 @@ test("buildTranscript renders Prompt context + user message for a multi-block se
           { type: "text", text: "[Context]\nScope: thread" },
           {
             type: "text",
-            text: `[Mira event: @mention]\nEvent ID: ${PROMPT_EVENT_ID.toUpperCase()}\nFrom: x (hex: ${"a".repeat(64)})\nContent: hello`,
+            text: `[Buzz event: @mention]\nEvent ID: ${PROMPT_EVENT_ID.toUpperCase()}\nFrom: x (hex: ${"a".repeat(64)})\nContent: hello`,
           },
         ],
       },
@@ -96,7 +96,7 @@ test("buildTranscript renders Prompt context + user message for a multi-block se
   const promptContext = items.find((i) => i.title === "Prompt context");
   assert.deepEqual(
     promptContext.sections.map((s) => s.title),
-    ["Agent Memory — core", "Context", "Mira event: @mention"],
+    ["Agent Memory — core", "Context", "Buzz event: @mention"],
     "every section header is counted",
   );
   const userMessage = items.find((i) => i.type === "message");
@@ -146,7 +146,7 @@ test("buildTranscript preserves a slash-command preamble before semantic prompt 
   );
   assert.deepEqual(
     promptContext?.sections.map((section) => section.title),
-    ["Prompt", "Context", "Mira event: @mention"],
+    ["Prompt", "Context", "Buzz event: @mention"],
   );
   assert.equal(promptContext?.sections[0]?.body, "/goal ship it");
 });
@@ -162,7 +162,7 @@ test("buildTranscript falls back to a single turn trigger id for older prompt fr
         prompt: [
           {
             type: "text",
-            text: `[Mira event: @mention]\nFrom: x (hex: ${"a".repeat(64)})\nContent: hello`,
+            text: `[Buzz event: @mention]\nFrom: x (hex: ${"a".repeat(64)})\nContent: hello`,
           },
         ],
       },
@@ -183,7 +183,7 @@ test("buildTranscript falls back to a single turn trigger id for older prompt fr
   assert.equal(userMessage.messageId, PROMPT_EVENT_ID);
 });
 
-test("buildTranscript keeps read_file activity categorized by the actual tool when output names Mira tools", () => {
+test("buildTranscript keeps read_file activity categorized by the actual tool when output names Buzz tools", () => {
   const [item] = toolItems([
     acpToolUpdate(10, {
       sessionUpdate: "tool_call",
@@ -220,7 +220,7 @@ test("buildTranscript keeps read_file activity categorized by the actual tool wh
   assert.match(item.result, /delete_message/);
 });
 
-test("buildTranscript keeps shell activity categorized by the actual tool when grep output names Mira tools", () => {
+test("buildTranscript keeps shell activity categorized by the actual tool when grep output names Buzz tools", () => {
   const [item] = toolItems([
     acpToolUpdate(20, {
       sessionUpdate: "tool_call",
@@ -255,7 +255,7 @@ test("buildTranscript keeps shell activity categorized by the actual tool when g
   assert.match(item.result, /delete_message/);
 });
 
-test("buildTranscript categorizes explicit Mira tool calls for the activity bar", () => {
+test("buildTranscript categorizes explicit Buzz tool calls for the activity bar", () => {
   const [item] = toolItems([
     acpToolUpdate(30, {
       sessionUpdate: "tool_call",
@@ -1135,7 +1135,7 @@ test("observer feed renders system-prompt before prompt-context in display order
           prompt: [
             {
               type: "text",
-              text: `[Mira event: @mention]\nEvent ID: ${"a".repeat(64)}\nFrom: x (hex: ${"b".repeat(64)})\nContent: hello`,
+              text: `[Buzz event: @mention]\nEvent ID: ${"a".repeat(64)}\nFrom: x (hex: ${"b".repeat(64)})\nContent: hello`,
             },
             { type: "text", text: "[Thread context]\nPrior messages here." },
           ],
@@ -1231,7 +1231,7 @@ test("observer feed renders system-prompt before prompt-context in display order
           prompt: [
             {
               type: "text",
-              text: `[Mira event: @mention]\nEvent ID: ${"a".repeat(64)}\nFrom: x (hex: ${"b".repeat(64)})\nContent: turn 1`,
+              text: `[Buzz event: @mention]\nEvent ID: ${"a".repeat(64)}\nFrom: x (hex: ${"b".repeat(64)})\nContent: turn 1`,
             },
             { type: "text", text: "[Thread context]\nEmpty." },
           ],
@@ -1265,7 +1265,7 @@ test("observer feed renders system-prompt before prompt-context in display order
           prompt: [
             {
               type: "text",
-              text: `[Mira event: @mention]\nEvent ID: ${"c".repeat(64)}\nFrom: x (hex: ${"d".repeat(64)})\nContent: turn 2`,
+              text: `[Buzz event: @mention]\nEvent ID: ${"c".repeat(64)}\nFrom: x (hex: ${"d".repeat(64)})\nContent: turn 2`,
             },
             { type: "text", text: "[Thread context]\nOne prior message." },
           ],
@@ -1327,7 +1327,7 @@ test("steer ingress bundles its prompt context into the steer prompt segment, no
           prompt: [
             {
               type: "text",
-              text: `[Mira event: @mention]\nEvent ID: ${"e".repeat(64)}\nFrom: x (hex: ${"f".repeat(64)})\nContent: steer me`,
+              text: `[Buzz event: @mention]\nEvent ID: ${"e".repeat(64)}\nFrom: x (hex: ${"f".repeat(64)})\nContent: steer me`,
             },
             { type: "text", text: "[Thread context]\nPrior messages here." },
           ],
@@ -1412,7 +1412,7 @@ test("buildTranscript correctly renders prompt segment when session/prompt arriv
       prompt: [
         {
           type: "text",
-          text: `[Mira event: @mention]\nEvent ID: ${EVENT_HEX.toUpperCase()}\nFrom: Alice (hex: ${AUTHOR_HEX})\nContent: please help`,
+          text: `[Buzz event: @mention]\nEvent ID: ${EVENT_HEX.toUpperCase()}\nFrom: Alice (hex: ${AUTHOR_HEX})\nContent: please help`,
         },
         { type: "text", text: "[Context]\nScope: thread" },
       ],
@@ -1594,7 +1594,7 @@ test("buildTranscript restart sequence: both sessions retain their own system-pr
           prompt: [
             {
               type: "text",
-              text: `[Mira event: @mention]\nEvent ID: ${USER_EVENT_HEX.toUpperCase()}\nFrom: Will (hex: ${AUTHOR_HEX})\nContent: @Paul status check? I had to restart`,
+              text: `[Buzz event: @mention]\nEvent ID: ${USER_EVENT_HEX.toUpperCase()}\nFrom: Will (hex: ${AUTHOR_HEX})\nContent: @Paul status check? I had to restart`,
             },
           ],
         },
@@ -1758,7 +1758,7 @@ test("buildTranscript same-seq different-timestamp session/new events both produ
   );
 });
 
-test("buildTranscript five-section system prompt card is standalone with all sections; CheckCheck context contains only Mira/thread context", () => {
+test("buildTranscript five-section system prompt card is standalone with all sections; CheckCheck context contains only Buzz/thread context", () => {
   // Production scenario: team-pack agent harness emits
   // [Base]/[System (with team delimiter)]/[Agent Memory — core]/[Channel Canvas]
   // in systemPrompt. The display layer must:
@@ -1843,7 +1843,7 @@ test("buildTranscript five-section system prompt card is standalone with all sec
           prompt: [
             {
               type: "text",
-              text: `[Mira event: @mention]\nEvent ID: ${"a".repeat(64)}\nFrom: x (hex: ${"b".repeat(64)})\nContent: hello`,
+              text: `[Buzz event: @mention]\nEvent ID: ${"a".repeat(64)}\nFrom: x (hex: ${"b".repeat(64)})\nContent: hello`,
             },
             {
               type: "text",
@@ -1912,8 +1912,8 @@ test("buildTranscript five-section system prompt card is standalone with all sec
   );
   // Must have Buzz event and Thread context sections, NOT Base/System/Team Instructions/Core Memory/Channel Canvas.
   assert.ok(
-    contextSectionTitles.some((t) => t.toLowerCase().includes("mira")),
-    "prompt context must contain a Mira event section",
+    contextSectionTitles.some((t) => t.toLowerCase().includes("buzz")),
+    "prompt context must contain a Buzz event section",
   );
   assert.ok(
     !contextSectionTitles.some(
@@ -2004,7 +2004,7 @@ test("buildTranscript session/new via _meta.systemPrompt.append produces identic
           prompt: [
             {
               type: "text",
-              text: `[Mira event: @mention]\nEvent ID: ${"a".repeat(64)}\nFrom: x (hex: ${"b".repeat(64)})\nContent: hello`,
+              text: `[Buzz event: @mention]\nEvent ID: ${"a".repeat(64)}\nFrom: x (hex: ${"b".repeat(64)})\nContent: hello`,
             },
             { type: "text", text: "[Thread context]\nPrior messages here." },
           ],

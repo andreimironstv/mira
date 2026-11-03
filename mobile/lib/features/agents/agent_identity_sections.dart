@@ -67,7 +67,7 @@ class AgentIdentitySections extends HookConsumerWidget {
                       ? 'Sign in to Builderlab to see whether this agent runs on Builderbot or your desktop.'
                       : remote
                       ? 'This agent runs on Builderbot. Your desktop doesn’t need to be online for it to work.'
-                      : 'This agent is managed on your desktop. Keep Mira open and your desktop online for it to work.',
+                      : 'This agent is managed on your desktop. Keep Buzz open and your desktop online for it to work.',
                   style: context.textTheme.bodyMedium,
                 ),
               ),

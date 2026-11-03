@@ -102,7 +102,7 @@ export function HostedCommunitiesSettingsCard() {
         errorMessage(
           identityResponse.error,
           identityResponse.correlation_id,
-          "Could not load the connected Mira identity.",
+          "Could not load the connected Buzz identity.",
         ),
       );
     }
@@ -178,7 +178,7 @@ export function HostedCommunitiesSettingsCard() {
     });
 
   const connectIdentity = () =>
-    run("Connecting Mira identity…", async () => {
+    run("Connecting Buzz identity…", async () => {
       const response = await invoke<IdentityResponse>(
         "bind_builderlab_nostr_identity",
       );
@@ -187,7 +187,7 @@ export function HostedCommunitiesSettingsCard() {
           errorMessage(
             response.error,
             response.correlation_id,
-            "Could not connect the Mira identity.",
+            "Could not connect the Buzz identity.",
           ),
         );
       }
@@ -205,7 +205,7 @@ export function HostedCommunitiesSettingsCard() {
           errorMessage(
             response.error,
             response.correlation_id,
-            "Could not unpair the Mira identity.",
+            "Could not unpair the Buzz identity.",
           ),
         );
       }
@@ -261,7 +261,7 @@ export function HostedCommunitiesSettingsCard() {
           errorMessage(
             released.error,
             released.correlation_id,
-            "Could not release the previously connected Mira identity.",
+            "Could not release the previously connected Buzz identity.",
           ),
         );
       }
@@ -274,11 +274,11 @@ export function HostedCommunitiesSettingsCard() {
         await loadAccount();
         throw new Error(
           bound.error.code === "pubkey_already_bound"
-            ? "This device's Mira identity is already reserved by another Builderlab account, so it can't be connected here. Sign in with that account, or transfer the identity there first."
+            ? "This device's Buzz identity is already reserved by another Builderlab account, so it can't be connected here. Sign in with that account, or transfer the identity there first."
             : errorMessage(
                 bound.error,
                 bound.correlation_id,
-                "Could not connect this device's Mira identity.",
+                "Could not connect this device's Buzz identity.",
               ),
         );
       }
@@ -405,7 +405,7 @@ export function HostedCommunitiesSettingsCard() {
           errorMessage(
             availabilityResponse.error,
             availabilityResponse.correlation_id,
-            "That Mira address is already taken.",
+            "That Buzz address is already taken.",
           ),
         );
       }
@@ -449,7 +449,7 @@ export function HostedCommunitiesSettingsCard() {
     <section className="space-y-6" data-testid="hosted-communities-settings">
       <SettingsSectionHeader
         title="Hosted communities"
-        description="Mira works with any relay. This page is only for relay hosting provided by Block — sign in with a Builderlab account to create and manage Block-hosted communities. Builderlab sign-in is used on this page alone."
+        description="Buzz works with any relay. This page is only for relay hosting provided by Block — sign in with a Builderlab account to create and manage Block-hosted communities. Builderlab sign-in is used on this page alone."
       />
 
       {error ? (
@@ -470,7 +470,7 @@ export function HostedCommunitiesSettingsCard() {
             className="mt-2 max-w-2xl text-sm text-muted-foreground/70"
             data-settings-subcopy
           >
-            Authentication opens in your browser and returns securely to Mira.
+            Authentication opens in your browser and returns securely to Buzz.
             You can use every other part of the app without signing in.
           </p>
           <Button
@@ -510,15 +510,15 @@ export function HostedCommunitiesSettingsCard() {
           {!identity ? (
             <div className="rounded-xl border border-amber-500/40 bg-amber-500/5 p-5">
               <h3 className="font-medium">
-                Link this account to your Mira identity
+                Link this account to your Buzz identity
               </h3>
               <p
                 className="mt-2 text-sm text-muted-foreground/70"
                 data-settings-subcopy
               >
-                This Builderlab account isn&apos;t linked to a Mira identity
+                This Builderlab account isn&apos;t linked to a Buzz identity
                 yet. Connect this device&apos;s key to create and own
-                communities under it — Mira signs a one-time challenge locally,
+                communities under it — Buzz signs a one-time challenge locally,
                 so your private key never leaves Desktop.
               </p>
               <Button
@@ -529,7 +529,7 @@ export function HostedCommunitiesSettingsCard() {
                 {action ? (
                   <LoaderCircle className="h-4 w-4 animate-spin" />
                 ) : null}
-                {action ?? "Connect Mira identity"}
+                {action ?? "Connect Buzz identity"}
               </Button>
             </div>
           ) : identityMismatch ? (
@@ -538,13 +538,13 @@ export function HostedCommunitiesSettingsCard() {
                 <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-amber-600" />
                 <div>
                   <h3 className="font-medium">
-                    This account is connected to a different Mira identity
+                    This account is connected to a different Buzz identity
                   </h3>
                   <p
                     className="mt-2 text-sm text-muted-foreground/70"
                     data-settings-subcopy
                   >
-                    Your Builderlab account owns communities under another Mira
+                    Your Builderlab account owns communities under another Buzz
                     key, so connecting them here would join a relay this device
                     isn&apos;t a member of. Creating and connecting are paused
                     until the identities match.
@@ -579,7 +579,7 @@ export function HostedCommunitiesSettingsCard() {
           ) : (
             <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-border/70 p-4">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <CheckCircle2 className="h-4 w-4 text-emerald-500" /> Mira
+                <CheckCircle2 className="h-4 w-4 text-emerald-500" /> Buzz
                 identity connected
                 {boundNpub ? (
                   <span className="font-mono text-xs">{boundNpub}</span>
@@ -763,9 +763,9 @@ function UnpairIdentityButton({
       </Button>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Unpair this Mira identity?</AlertDialogTitle>
+          <AlertDialogTitle>Unpair this Buzz identity?</AlertDialogTitle>
           <AlertDialogDescription>
-            Your Builderlab account will no longer be connected to this Mira
+            Your Builderlab account will no longer be connected to this Buzz
             key. You can reconnect any key later, but community actions stay
             unavailable until you do.
           </AlertDialogDescription>
@@ -961,7 +961,7 @@ function TransferOwnershipDialog({
           <DialogTitle>Transfer ownership</DialogTitle>
           <DialogDescription>
             Transfer {communityName} to another person. You become a regular
-            member. The recipient needs a connected Mira identity first, and
+            member. The recipient needs a connected Buzz identity first, and
             this can&apos;t be undone.
           </DialogDescription>
         </DialogHeader>

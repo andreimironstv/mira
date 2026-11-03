@@ -53,7 +53,7 @@ void main() {
         findsOneWidget,
         reason: 'Exercise the real compiled shader',
       );
-      expect(find.bySemanticsLabel('Mira'), findsOneWidget);
+      expect(find.bySemanticsLabel('Buzz'), findsOneWidget);
 
       Future<Uint8List> pixels() async {
         return (await tester.runAsync(() async {

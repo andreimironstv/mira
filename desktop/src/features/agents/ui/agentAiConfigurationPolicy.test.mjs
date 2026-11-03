@@ -105,7 +105,7 @@ test("Codex/Claude Customize needs only a model, not the hidden provider", () =>
   );
 });
 
-test("Mira Agent/Goose Customize still requires both provider and model", () => {
+test("Buzz Agent/Goose Customize still requires both provider and model", () => {
   assert.equal(
     agentAiConfigurationModeSatisfied(
       "custom",

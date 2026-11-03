@@ -8,7 +8,7 @@ test("labels the active community by name", () => {
 });
 
 test("trims surrounding whitespace from the community name", () => {
-  assert.equal(appearanceCommunityLabel("  Mira HQ  "), "Mira HQ");
+  assert.equal(appearanceCommunityLabel("  Buzz HQ  "), "Buzz HQ");
 });
 
 test("falls back to a generic label when no community is active", () => {

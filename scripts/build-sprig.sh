@@ -133,7 +133,7 @@ JSON
 cat > "${STAGING}/README.md" <<'README'
 # Sprig
 
-Sprig is the all-in-one Mira agent binary for deploy-anywhere environments.
+Sprig is the all-in-one Buzz agent binary for deploy-anywhere environments.
 It exposes the ACP harness, ACP agent, and developer MCP command names as symlinks
 to one multicall binary so shared Rust runtime/TLS code is stored only once.
 
@@ -141,7 +141,7 @@ Commands:
 
 - `sprig` — prints usage/version. Invoke a personality by one of the links below.
 - `buzz-acp` — ACP harness and `git-credential-nostr` / `git-sign-nostr`
-  multicall entrypoint that bridges Mira channel events to an
+  multicall entrypoint that bridges Buzz channel events to an
   ACP-compliant agent over stdio.
 - `buzz-agent` — ACP-compliant agent (spawns MCP servers, calls LLMs).
 - `buzz-dev-mcp` — Developer MCP server (shell, str_replace, todo) and

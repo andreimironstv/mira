@@ -103,7 +103,7 @@ async function chooseSharedComputeProvider(
   await page
     .getByRole("menuitemradio", {
       exact: true,
-      name: "Mira shared compute",
+      name: "Buzz shared compute",
     })
     .click();
 }
@@ -123,7 +123,7 @@ test("creates a new mocked stream", async ({ page }) => {
   await expect(page.getByTestId("chat-title")).toContainText(channelName);
 });
 
-test("Mira shared compute explains automatic model selection", async ({
+test("Buzz shared compute explains automatic model selection", async ({
   page,
 }) => {
   await page.goto("/");
@@ -158,7 +158,7 @@ test("Mira shared compute explains automatic model selection", async ({
   await expect(page.locator("#persona-custom-model")).toHaveCount(0);
 });
 
-test("create agent persists Mira shared compute with auto model", async ({
+test("create agent persists Buzz shared compute with auto model", async ({
   page,
 }) => {
   const agentName = `Shared compute agent ${Date.now()}`;

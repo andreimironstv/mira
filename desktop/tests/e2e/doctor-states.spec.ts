@@ -33,7 +33,7 @@ const GOOSE_AVAILABLE = {
 /** buzz-agent is always available and has no auth step. */
 const BUZZ_AGENT_AVAILABLE = {
   id: "buzz-agent",
-  label: "Mira Agent",
+  label: "Buzz Agent",
   avatar_url: "",
   availability: "available",
   command: "buzz-agent",
@@ -83,7 +83,7 @@ const CODEX_NOT_INSTALLED = {
   binary_path: null,
   default_args: [],
   mcp_command: null,
-  install_hint: "Mira talks to Codex through the Codex CLI.",
+  install_hint: "Buzz talks to Codex through the Codex CLI.",
   install_instructions_url: "https://developers.openai.com/codex/cli/",
   can_auto_install: true,
   underlying_cli_path: null,
@@ -222,7 +222,7 @@ test.describe("Doctor panel state screenshots", () => {
       0,
     );
     await expect(page.getByTestId("doctor-runtime-codex")).not.toContainText(
-      "Mira talks to Codex through the Codex CLI.",
+      "Buzz talks to Codex through the Codex CLI.",
     );
 
     await runtimeList.scrollIntoViewIfNeeded();
@@ -472,9 +472,9 @@ test.describe("Doctor panel state screenshots", () => {
               success: false,
               stdout: "",
               stderr:
-                "The installer finished, but Mira still could not use codex (observed: NotInstalled).",
+                "The installer finished, but Buzz still could not use codex (observed: NotInstalled).",
               exit_code: null,
-              hint: "Mira requires the vendor CLI executable, not only its desktop app. If the CLI was installed while Mira was open, restart Mira and check again.",
+              hint: "Buzz requires the vendor CLI executable, not only its desktop app. If the CLI was installed while Buzz was open, restart Buzz and check again.",
             },
           ],
         },
@@ -828,7 +828,7 @@ test.describe("Doctor panel state screenshots", () => {
     const dialog = page.getByRole("alertdialog");
     await expect(dialog).toContainText("Update Codex adapter?");
     await expect(dialog).toContainText(
-      "Older Mira releases using the legacy adapter may lose community access",
+      "Older Buzz releases using the legacy adapter may lose community access",
     );
     await expect(page.getByTestId("doctor-runtime-loading-codex")).toHaveCount(
       0,

@@ -35,7 +35,7 @@ test("keeps submitted context collapsed until explicitly expanded", async () => 
     "./ProjectAgentSubmittedContextPill.tsx"
   );
   const payload =
-    '---\nCurrent Mira project page:\n- Project: "Projects"\n- View: Activity';
+    '---\nCurrent Buzz project page:\n- Project: "Projects"\n- View: Activity';
 
   render(createElement(ProjectAgentSubmittedContextPill, { payload }));
 

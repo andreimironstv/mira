@@ -216,7 +216,7 @@ void runProfileEditMotionAndAccessibilityTests() {
               profile: const UserProfile(
                 pubkey: 'aabb',
                 displayName: 'Alice',
-                about: 'Building Mira',
+                about: 'Building Buzz',
                 avatarUrl: avatar,
               ),
             ),

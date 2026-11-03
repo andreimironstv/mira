@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   const url = 'buzz://message?channel=channel-1&id=message-1';
 
-  test('normalizes supported bare and autolinked Mira URLs', () {
+  test('normalizes supported bare and autolinked Buzz URLs', () {
     expect(
       normalizeBareLinks('See $url and <$url>'),
       'See [$url]($url) and [$url]($url)',
@@ -285,7 +285,7 @@ void main() {
       );
     },
   );
-  test('normalizes every bare Mira entity permalink family', () {
+  test('normalizes every bare Buzz entity permalink family', () {
     final owner = 'ab' * 32;
     final id = 'cd' * 32;
     final links = [

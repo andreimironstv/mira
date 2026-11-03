@@ -5,14 +5,14 @@
 set -euo pipefail
 
 if [[ $# -ne 2 ]]; then
-  echo "Usage: $0 <Mira.app> <output.dmg>" >&2
+  echo "Usage: $0 <Buzz.app> <output.dmg>" >&2
   exit 2
 fi
 
 app_path="$1"
 out_dmg="$2"
 app_name="$(basename "$app_path")"
-volume_name="${VOL_NAME:-Mira}"
+volume_name="${VOL_NAME:-Buzz}"
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 background="$script_dir/../src-tauri/icons/dmg-background.png"
 work_dir="$(mktemp -d "${TMPDIR:-/tmp}/buzz-dmg.XXXXXX")"

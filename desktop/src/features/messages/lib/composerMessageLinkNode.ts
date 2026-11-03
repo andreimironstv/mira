@@ -383,11 +383,11 @@ function composerLinkPresentation(
   const entity = parseEntityLink(href);
   if (!entity.ok) {
     return {
-      ariaLabel: "Mira link",
+      ariaLabel: "Buzz link",
       channelName: "",
       dataAttributes: {},
       icon: "message",
-      label: "Mira link",
+      label: "Buzz link",
     };
   }
 

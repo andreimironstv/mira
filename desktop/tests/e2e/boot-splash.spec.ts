@@ -28,6 +28,16 @@ test("boot splash overlay holds with a flapping bee, then dismisses", async ({
   const overlay = page.getByTestId("boot-splash-overlay");
   await expect(overlay).toBeVisible();
 
+  // The bee is actually animating while the overlay holds — pure CSS, no SMIL.
+  const wingState = await overlay.locator(".bee-wing-left").evaluate((wing) => {
+    const animation = wing.getAnimations()[0];
+    return {
+      name: getComputedStyle(wing).animationName,
+      state: animation?.playState,
+    };
+  });
+  expect(wingState).toEqual({ name: "bee-wing-left-flap", state: "running" });
+
   // The app mounts and loads beneath the overlay — boot is not delayed.
   await expect(page.getByTestId("home-inbox-list")).toBeVisible();
 

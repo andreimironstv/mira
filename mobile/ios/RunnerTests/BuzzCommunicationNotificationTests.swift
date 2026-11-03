@@ -23,7 +23,7 @@ final class BuzzCommunicationNotificationTests: XCTestCase {
     XCTAssertEqual(intent.sender?.customIdentifier, descriptor.senderIdentifier)
     XCTAssertNotNil(intent.sender?.image)
     XCTAssertNotNil(intent.image(forParameterNamed: \.speakableGroupName))
-    XCTAssertEqual(intent.content, "Hello Mira")
+    XCTAssertEqual(intent.content, "Hello Buzz")
     XCTAssertEqual(intent.speakableGroupName?.spokenPhrase, "General")
     XCTAssertEqual(intent.conversationIdentifier, resolution.conversationIdentifier)
     XCTAssertNil(intent.recipients)
@@ -64,7 +64,7 @@ final class BuzzCommunicationNotificationTests: XCTestCase {
   func testPresentationFallsBackWhenDonationFails() {
     let ordinary = UNMutableNotificationContent()
     ordinary.title = "Alice"
-    ordinary.body = "Hello Mira"
+    ordinary.body = "Hello Buzz"
     var updateCalled = false
     let presenter = BuzzCommunicationNotificationPresenter(
       donate: { _, completion in
@@ -83,7 +83,7 @@ final class BuzzCommunicationNotificationTests: XCTestCase {
       resolution: communicationResolution()
     ) { content in
       XCTAssertEqual(content.title, "Alice")
-      XCTAssertEqual(content.body, "Hello Mira")
+      XCTAssertEqual(content.body, "Hello Buzz")
       completed.fulfill()
     }
 
@@ -125,7 +125,7 @@ final class BuzzCommunicationNotificationTests: XCTestCase {
   func testPresentationFallsBackWhenSpecializationFails() {
     let ordinary = UNMutableNotificationContent()
     ordinary.title = "Alice"
-    ordinary.body = "Hello Mira"
+    ordinary.body = "Hello Buzz"
     let presenter = BuzzCommunicationNotificationPresenter(
       donate: { _, completion in completion(nil) },
       deleteAllInteractions: { completion in completion(nil) },
@@ -138,7 +138,7 @@ final class BuzzCommunicationNotificationTests: XCTestCase {
       resolution: communicationResolution()
     ) { content in
       XCTAssertEqual(content.title, "Alice")
-      XCTAssertEqual(content.body, "Hello Mira")
+      XCTAssertEqual(content.body, "Hello Buzz")
       completed.fulfill()
     }
 
@@ -219,7 +219,7 @@ final class BuzzCommunicationNotificationTests: XCTestCase {
     let channelID = "channel/general:v5"
     return BuzzPushResolution(
       title: displayName,
-      body: "Hello Mira",
+      body: "Hello Buzz",
       subtitle: "Community",
       threadIdentifier: BuzzPushPresentationIdentity.conversation(
         communityID: communityID,

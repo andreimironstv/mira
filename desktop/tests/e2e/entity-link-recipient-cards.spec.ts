@@ -25,7 +25,7 @@ const EXTERNAL_HREF = "https://example.com/entity-chip-control";
 const RELAY_ORIGIN = "http://localhost:3000";
 const CLONE_HREF = `${RELAY_ORIGIN}/git/${ALICE_PUBKEY}/relay-tools.git`;
 
-test("agent-style Mira links stay chip-only with metadata tooltips", async ({
+test("agent-style Buzz links stay chip-only with metadata tooltips", async ({
   page,
 }) => {
   await page.addInitScript(
@@ -405,10 +405,10 @@ test("entity tooltip uses project context while relay metadata is delayed", asyn
     page
       .getByRole("tooltip")
       .locator('[data-buzz-tooltip-metadata-content=""]'),
-  ).toHaveText("buzz · The complete Mira community platform.");
+  ).toHaveText("buzz · The complete Buzz community platform.");
 });
 
-test("desktop composer and sent message keep Mira entities chip-only", async ({
+test("desktop composer and sent message keep Buzz entities chip-only", async ({
   page,
 }) => {
   await installMockBridge(page);

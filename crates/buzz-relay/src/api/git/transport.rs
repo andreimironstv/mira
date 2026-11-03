@@ -2366,7 +2366,7 @@ mod track_c_tests {
             "initialize source repository",
         );
         assert_git_success(
-            run_test_git(source.as_path(), &["config", "user.name", "Mira Test"], &[]),
+            run_test_git(source.as_path(), &["config", "user.name", "Buzz Test"], &[]),
             "configure user name",
         );
         assert_git_success(

@@ -378,7 +378,7 @@ pub fn resolve_thread_target(
         .to_hex();
     if expected_root_id.is_some_and(|expected| expected != root_event_id) {
         return Err(CliError::Usage(
-            "Mira message link thread root does not match the selected message".into(),
+            "Buzz message link thread root does not match the selected message".into(),
         ));
     }
     Ok(root_event_id)

@@ -33,7 +33,7 @@ export function RecoveryScreen({
           }}
           type="button"
         >
-          Relaunch Mira
+          Relaunch Buzz
         </Button>
       </div>
     </div>

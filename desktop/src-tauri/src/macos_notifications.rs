@@ -164,7 +164,7 @@ fn ensure_bundled_application() -> Result<(), String> {
         Ok(())
     } else {
         Err(
-            "macOS notifications are unavailable when Mira is not running from an app bundle"
+            "macOS notifications are unavailable when Buzz is not running from an app bundle"
                 .to_string(),
         )
     }
@@ -483,8 +483,8 @@ mod tests {
     #[test]
     fn requires_the_executable_to_use_the_app_bundle_layout() {
         assert!(is_application_bundle_layout(
-            Path::new("/Applications/Mira.app"),
-            Path::new("/Applications/Mira.app/Contents/MacOS/buzz-desktop"),
+            Path::new("/Applications/Buzz.app"),
+            Path::new("/Applications/Buzz.app/Contents/MacOS/buzz-desktop"),
         ));
         assert!(!is_application_bundle_layout(
             Path::new("/tmp/Fake.app"),
@@ -495,7 +495,7 @@ mod tests {
             Path::new("/Users/developer/buzz/desktop/src-tauri/target/debug/buzz-desktop"),
         ));
         assert!(!is_application_bundle_layout(
-            Path::new("/Applications/Mira.app"),
+            Path::new("/Applications/Buzz.app"),
             Path::new("/Applications/Other.app/Contents/MacOS/buzz-desktop"),
         ));
     }

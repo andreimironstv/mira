@@ -18,7 +18,7 @@ test("Pi metadata replacement prompt produces a standalone system prompt card", 
           _meta: {
             sessionTitle: "Pi fixture",
             systemPrompt:
-              "<base>\nMira base\n</base>\n\n<agent-instructions>\nPersona\n</agent-instructions>",
+              "<base>\nBuzz base\n</base>\n\n<agent-instructions>\nPersona\n</agent-instructions>",
           },
         },
       },
@@ -31,7 +31,7 @@ test("Pi metadata replacement prompt produces a standalone system prompt card", 
   assert.equal(cards[0].turnId, null);
   assert.deepEqual(
     cards[0].sections.map((section) => section.body),
-    ["Mira base", "Persona"],
+    ["Buzz base", "Persona"],
   );
 });
 
@@ -52,7 +52,7 @@ test("Pi metadata replace object produces a standalone system prompt card", () =
             sessionTitle: "Pi fixture",
             systemPrompt: {
               replace:
-                "<base>\nMira base\n</base>\n\n<agent-instructions>\nPersona\n</agent-instructions>",
+                "<base>\nBuzz base\n</base>\n\n<agent-instructions>\nPersona\n</agent-instructions>",
             },
           },
         },
@@ -66,6 +66,6 @@ test("Pi metadata replace object produces a standalone system prompt card", () =
   assert.equal(cards[0].turnId, null);
   assert.deepEqual(
     cards[0].sections.map((section) => section.body),
-    ["Mira base", "Persona"],
+    ["Buzz base", "Persona"],
   );
 });

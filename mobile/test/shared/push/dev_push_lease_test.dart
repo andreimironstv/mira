@@ -101,7 +101,7 @@ void main() {
     expect(legacy.hGrammar, 'uuid-v4-lowercase');
   });
 
-  test('legacy capability does not enable Mira push', () {
+  test('legacy capability does not enable Buzz push', () {
     final information = _descriptorJson(relay.public);
     information['supported_extensions'] = ['nip-pl'];
     expect(

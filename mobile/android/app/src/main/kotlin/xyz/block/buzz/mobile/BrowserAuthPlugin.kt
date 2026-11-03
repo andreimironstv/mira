@@ -58,7 +58,7 @@ internal class BrowserAuthPlugin(
 
     fun onNewIntent(intent: Intent) {
         val uri = intent.data ?: return
-        if (pending == null || uri.scheme != "ro.miraai.mira.mobile" ||
+        if (pending == null || uri.scheme != "xyz.block.buzz.mobile" ||
             uri.encodedSchemeSpecificPart.substringBefore('?') != "/auth/callback"
         ) return
         // A rejected auth callback also brings the Activity back. Its resume

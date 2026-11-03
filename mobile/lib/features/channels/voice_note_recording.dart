@@ -220,7 +220,7 @@ class DeviceVoiceNoteRecorder implements VoiceNoteRecorder {
     final recordedPath = await _recorder.stop() ?? _path;
     _nativeEnded = true;
     if (recordedPath == null || recordedPath.isEmpty) {
-      throw StateError('Mira could not finish the voice note.');
+      throw StateError('Buzz could not finish the voice note.');
     }
     final startedAt = _startedAt;
     final duration = startedAt == null

@@ -255,11 +255,11 @@ function RepositoryUnavailableIndicator({
   if (!reason) return null;
   const status = {
     authentication: {
-      description: "Mira could not authenticate with this repository.",
+      description: "Buzz could not authenticate with this repository.",
       label: "Access failed",
     },
     missing: {
-      description: "No git repository was found on the Mira relay.",
+      description: "No git repository was found on the Buzz relay.",
       label: "Uninitialized",
     },
     access: {
@@ -273,7 +273,7 @@ function RepositoryUnavailableIndicator({
       label: "No access channel",
     },
     network: {
-      description: "The Mira git service could not be reached.",
+      description: "The Buzz git service could not be reached.",
       label: "Unreachable",
     },
     ref: {
@@ -281,7 +281,7 @@ function RepositoryUnavailableIndicator({
       label: "Branch missing",
     },
     unknown: {
-      description: "Mira could not load this repository.",
+      description: "Buzz could not load this repository.",
       label: "Unavailable",
     },
   } satisfies Record<

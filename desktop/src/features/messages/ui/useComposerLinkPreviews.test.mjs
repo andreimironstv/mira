@@ -771,7 +771,7 @@ const CLONE_OWNER = "a".repeat(64);
 const RELAY_ORIGIN = "https://relay.example.com";
 const CLONE_HREF = `${RELAY_ORIGIN}/git/${CLONE_OWNER}/relay-tools.git`;
 
-test("composer input classifies a same-relay clone URL as a Mira entity", async () => {
+test("composer input classifies a same-relay clone URL as a Buzz entity", async () => {
   const { updateComposerLinkPreviewInput } = await import(
     "./useComposerLinkPreviews.tsx"
   );
@@ -847,7 +847,7 @@ test("composer never fetches a snapshot for a same-relay clone URL", async () =>
     assert.equal(
       fetchCalls,
       0,
-      "a Mira repository entity must not enter external snapshot fetching",
+      "a Buzz repository entity must not enter external snapshot fetching",
     );
     assert.equal(result.current.previewList, null);
     assert.deepEqual(result.current.getReadyTags(), []);

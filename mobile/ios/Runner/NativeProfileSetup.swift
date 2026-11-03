@@ -389,7 +389,7 @@ private final class NativeProfileSetupController: UIViewController, UITextFieldD
     nameMinimumHeight.priority = .defaultHigh
     nameMinimumHeight.isActive = true
     name.delegate = self; name.addTarget(self, action: #selector(nameChanged), for: .editingChanged)
-    explanation.text = "Your display name is how people see you in Mira. You can change it any time."
+    explanation.text = "Your display name is how people see you in Buzz. You can change it any time."
     explanation.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: .systemFont(ofSize: 16, weight: .regular))
     explanation.adjustsFontForContentSizeCategory = true
     explanation.textColor = color("subtitleArgb", fallback: .secondaryLabel)
@@ -471,7 +471,7 @@ private final class NativeProfileSetupController: UIViewController, UITextFieldD
     heading.text = avatar ? "Choose your avatar" : "Choose a display name"
     explanation.text = avatar
       ? "Let’s choose an avatar so people know it’s you."
-      : "Your display name is how people see you in Mira. You can change it any time."
+      : "Your display name is how people see you in Buzz. You can change it any time."
     updateHeadingTypography()
     explanationRow.directionalLayoutMargins = .zero
     name.isHidden = avatar

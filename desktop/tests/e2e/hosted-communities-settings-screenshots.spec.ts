@@ -59,7 +59,7 @@ test("identity: mismatch rows follow pubkey_hex, never the hosted npub or raw he
   });
 
   await expect(
-    page.getByText("This account is connected to a different Mira identity"),
+    page.getByText("This account is connected to a different Buzz identity"),
   ).toBeVisible();
   const settingsView = page.getByTestId("settings-view");
   await expect(
@@ -87,7 +87,7 @@ test("identity: connected row follows pubkey_hex when the hosted npub encodes an
   });
 
   const connectedNpub = page
-    .getByText("Mira identity connected")
+    .getByText("Buzz identity connected")
     .locator("span.font-mono");
   await expect(connectedNpub).toHaveText(npubEncode(DEFAULT_MOCK_PUBKEY));
   await expect(
@@ -105,7 +105,7 @@ test("identity: unusable bound hex renders the neutral label, not the hosted npu
   });
 
   await expect(
-    page.getByText("This account is connected to a different Mira identity"),
+    page.getByText("This account is connected to a different Buzz identity"),
   ).toBeVisible();
   const settingsView = page.getByTestId("settings-view");
   await expect(
@@ -126,7 +126,7 @@ test("identity: consistent hosted identity renders its canonical npub", async ({
   });
 
   const connectedNpub = page
-    .getByText("Mira identity connected")
+    .getByText("Buzz identity connected")
     .locator("span.font-mono");
   await expect(connectedNpub).toHaveText(npubEncode(DEFAULT_MOCK_PUBKEY));
 });
@@ -153,9 +153,9 @@ test("identity: unlinked account offers linking, never a connected claim", async
   await openSettings(page, "hosted-communities");
 
   await expect(
-    page.getByText("Link this account to your Mira identity"),
+    page.getByText("Link this account to your Buzz identity"),
   ).toBeVisible();
-  await expect(page.getByText("Mira identity connected")).toHaveCount(0);
+  await expect(page.getByText("Buzz identity connected")).toHaveCount(0);
   // The seeded owned community still lists — every affordance that does
   // not act on the binding stays available — but Connect is an action on
   // the binding and cannot occur without a usable bound key: no row
@@ -184,10 +184,10 @@ test("identity: padded or mixed-case bound hex is the same key, not a mismatch",
   });
 
   await expect(
-    page.getByText("This account is connected to a different Mira identity"),
+    page.getByText("This account is connected to a different Buzz identity"),
   ).toHaveCount(0);
   const connectedNpub = page
-    .getByText("Mira identity connected")
+    .getByText("Buzz identity connected")
     .locator("span.font-mono");
   await expect(connectedNpub).toHaveText(npubEncode(DEFAULT_MOCK_PUBKEY));
   // A binding that is the same key after normalization keeps its Connect
@@ -224,10 +224,10 @@ for (const [label, payload] of UNUSABLE_BOUND_KEY_PAYLOADS) {
     const settingsView = page.getByTestId("settings-view");
     // No connected claim anywhere on the surface, despite the identity
     // object being present.
-    await expect(page.getByText("Mira identity connected")).toHaveCount(0);
+    await expect(page.getByText("Buzz identity connected")).toHaveCount(0);
     // The mismatch recovery block owns the identity panel instead.
     await expect(
-      page.getByText("This account is connected to a different Mira identity"),
+      page.getByText("This account is connected to a different Buzz identity"),
     ).toBeVisible();
     await expect(
       page
