@@ -87,6 +87,23 @@ const markSvg = () =>
 // Targeted edits for what the word rule cannot express.
 const FILE_RULES = [
   {
+    // Lower-cased comparisons against section titles produced by the word rule.
+    file: /\.(ts|tsx|mjs|dart)$/,
+    from: /(["'])buzz event/g,
+    to: (_, quote) => `${quote}mira event`,
+  },
+  {
+    file: /^desktop\/src\/features\/agents\/ui\/agentSessionTranscript\.test\.mjs$/,
+    from: /toLowerCase\(\)\.includes\("buzz"\)/g,
+    to: () => 'toLowerCase().includes("mira")',
+  },
+  {
+    // A case-insensitive lookup of the renamed fixture "Mira Team".
+    file: /^crates\/buzz-cli\/src\/commands\/channel_templates\.rs$/,
+    from: /"buzz team"/g,
+    to: () => '"mira team"',
+  },
+  {
     // App identity, the same length as upstream's so no line ever reflows
     // under rustfmt. Also matches the regex-escaped form in shell assertions.
     file: /^(?!mobile\/android\/)/,

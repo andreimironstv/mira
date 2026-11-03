@@ -149,7 +149,7 @@ mod tests {
     #[test]
     fn find_template_matches_case_insensitive() {
         let f = write_store(r#"[{"id":"t1","name":"Mira Team","createdAt":"x","updatedAt":"x"}]"#);
-        let t = find_template(f.path(), "buzz team").expect("found");
+        let t = find_template(f.path(), "mira team").expect("found");
         assert_eq!(t.name, "Mira Team");
         assert_eq!(t.channel_type, "stream");
         assert_eq!(t.visibility, "open");
