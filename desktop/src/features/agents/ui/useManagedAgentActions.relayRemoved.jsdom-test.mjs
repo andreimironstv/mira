@@ -49,7 +49,7 @@ const tauriMock = {
       return Promise.resolve([
         {
           id: "buzz-agent",
-          label: "Buzz Agent",
+          label: "Mira Agent",
           avatar_url: "",
           availability: "available",
           command: "buzz-agent",

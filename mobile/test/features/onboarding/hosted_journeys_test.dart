@@ -176,7 +176,7 @@ void main() {
     f.beforeBrowserReturn = null;
     await f.tap(tester, 'or sign in with email');
     await f.settle(tester);
-    expect(find.text('Create my Buzz identity').hitTestable(), findsOneWidget);
+    expect(find.text('Create my Mira identity').hitTestable(), findsOneWidget);
   });
 
   for (final importing in [false, true]) {
@@ -216,7 +216,7 @@ void main() {
         await f.settle(tester);
         expect(f.flow.stage, HostedFlowStage.setupIdentity);
         expect(f.probes, isEmpty);
-        expect(find.text('Create my Buzz identity'), findsOneWidget);
+        expect(find.text('Create my Mira identity'), findsOneWidget);
         expect(find.text('Import existing identity'), findsOneWidget);
         expect(await f.store.read(), isNull);
         if (importing) {
@@ -244,7 +244,7 @@ void main() {
           await f.settle(tester);
           expect(f.bound, f.keys.public);
         } else {
-          await f.tap(tester, 'Create my Buzz identity');
+          await f.tap(tester, 'Create my Mira identity');
         }
         final saved = await f.store.read();
         expect(saved, isNotNull);
@@ -269,7 +269,7 @@ void main() {
     await f.settle(tester);
     expect(f.flow.stage, HostedFlowStage.setupIdentity);
     expect(f.probes, isEmpty);
-    expect(find.text('Create my Buzz identity'), findsNothing);
+    expect(find.text('Create my Mira identity'), findsNothing);
     expect(find.text('Import existing identity'), findsOneWidget);
     await f.tap(tester, 'Import existing identity');
     await tester.enterText(
@@ -891,7 +891,7 @@ void main() {
           browserReturn.complete();
         }
         await f.settle(tester);
-        await tester.tap(find.text('Create my Buzz identity'));
+        await tester.tap(find.text('Create my Mira identity'));
         await enrollmentReached.future.timeout(const Duration(seconds: 5));
         await tester.pump();
         await tester.pump(const Duration(milliseconds: 400));

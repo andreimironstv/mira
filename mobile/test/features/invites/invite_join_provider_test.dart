@@ -564,7 +564,7 @@ void main() {
     expect(state.requiresFreshInvite, isTrue);
     expect(
       state.errorMessage,
-      'Review this community’s join requirements in your browser, then return to Buzz.',
+      'Review this community’s join requirements in your browser, then return to Mira.',
     );
 
     await container.read(inviteJoinProvider.notifier).confirmJoin();

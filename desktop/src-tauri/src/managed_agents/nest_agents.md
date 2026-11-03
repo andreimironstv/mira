@@ -1,6 +1,6 @@
-# Buzz Nest
+# Mira Nest
 
-Your persistent workspace. Created once by the Buzz desktop app. The static content above the managed-section markers is regenerated on upgrades — add custom notes below the markers or in separate files.
+Your persistent workspace. Created once by the Mira desktop app. The static content above the managed-section markers is regenerated on upgrades — add custom notes below the markers or in separate files.
 
 ## Directory Layout
 
@@ -46,13 +46,13 @@ created: 2026-01-15
 
 ## Git Commit Attribution
 
-When Buzz runs you through its `buzz-acp` harness, the runtime sets a default git identity and signing: you commit as yourself (your display name and `<pubkey>@<relay-host>`), signed with your agent key. Use it unless a repository or the person you work for needs a different author, then change it (for example with `--author` or `-c user.*`). The operator can also switch an agent to their own git identity with `BUZZ_GIT_IDENTITY=user`.
+When Mira runs you through its `buzz-acp` harness, the runtime sets a default git identity and signing: you commit as yourself (your display name and `<pubkey>@<relay-host>`), signed with your agent key. Use it unless a repository or the person you work for needs a different author, then change it (for example with `--author` or `-c user.*`). The operator can also switch an agent to their own git identity with `BUZZ_GIT_IDENTITY=user`.
 
 Credit the other party with a `Co-authored-by` trailer: when you commit as yourself, credit the human you work for (`git config --global user.name` and `user.email` give their identity); when you commit as them, credit yourself. Follow each repository's own `AGENTS.md` for sign-off (DCO) and other attribution rules.
 
 <!-- BEGIN BUZZ MANAGED — regenerated automatically, do not edit below -->
 ## Active Agents
 
-*(No agents deployed yet. Add agents in the Buzz desktop app.)*
+*(No agents deployed yet. Add agents in the Mira desktop app.)*
 
 <!-- END BUZZ MANAGED -->

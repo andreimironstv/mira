@@ -2,7 +2,7 @@ import { randomBytes } from "node:crypto";
 import { writeFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 
-const PRODUCTION_IDENTIFIER = "xyz.block.buzz.app";
+const PRODUCTION_IDENTIFIER = "ro.miraai.mira.app";
 // The build ID suffix is 17 characters including its separator, and the Rust
 // build contract caps the complete demo slug at 48 ASCII bytes.
 const MAX_DEMO_SLUG_LENGTH = 48;
@@ -10,7 +10,7 @@ const DEMO_BUILD_ID_SUFFIX_LENGTH = 17;
 const MAX_DEMO_NAME_LENGTH = MAX_DEMO_SLUG_LENGTH - DEMO_BUILD_ID_SUFFIX_LENGTH;
 
 export const productionBuildIdentity = Object.freeze({
-  productName: "Buzz",
+  productName: "Mira",
   identifier: PRODUCTION_IDENTIFIER,
   deepLinkScheme: "buzz",
   keyringService: "buzz-desktop",
@@ -47,7 +47,7 @@ export function demoBuildConfig(
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
   const slug = `${readableSlug}-${buildId}`;
-  const productName = `Buzz ${name}`;
+  const productName = `Mira ${name}`;
   return {
     name,
     slug,

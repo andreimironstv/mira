@@ -67,7 +67,7 @@ async fn cmd_add_channel_draft(
         object.insert("saved".into(), false.into());
         object.insert(
             "message".into(),
-            "Project channel draft sent to Buzz Desktop for owner review. The channel is not created until the owner approves it."
+            "Project channel draft sent to Mira Desktop for owner review. The channel is not created until the owner approves it."
                 .into(),
         );
     }
@@ -77,7 +77,7 @@ async fn cmd_add_channel_draft(
 
 // ── Buzz repo-ID grammar (bare --repo shorthand) ─────────────────────────────
 
-/// Pattern for a Buzz-hosted repo identifier (bare `--repo` shorthand).
+/// Pattern for a Mira-hosted repo identifier (bare `--repo` shorthand).
 /// `[a-zA-Z0-9._-]{1,64}` — no colons, so guaranteed collision-free with
 /// `30617:<owner>:<d>` full coordinates.
 fn is_bare_repo_id(s: &str) -> bool {
@@ -299,7 +299,7 @@ fn make_tag(parts: &[&str]) -> Result<Tag, CliError> {
 ///
 /// `link_slug` carries the project's d-tag on creates whose slug fits the
 /// `buzz://` link charset; the response then also carries a `link` field,
-/// which renders as a rich preview card in Buzz Desktop when included in a
+/// which renders as a rich preview card in Mira Desktop when included in a
 /// chat message — agents announce projects with it (see base_prompt.md).
 async fn submit_project(
     client: &BuzzClient,
@@ -772,7 +772,7 @@ pub(crate) fn verify_default_repo_write(
 // ── Validation helpers ────────────────────────────────────────────────────────
 
 /// Validate a project slug: non-empty, ≤1024 bytes, verbatim.
-/// Does NOT impose the Buzz repo-ID grammar — project slugs are more permissive.
+/// Does NOT impose the Mira repo-ID grammar — project slugs are more permissive.
 fn validate_project_slug(slug: &str) -> Result<(), CliError> {
     if slug.is_empty() {
         return Err(CliError::Usage("project slug must not be empty".into()));

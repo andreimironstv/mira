@@ -37,12 +37,12 @@ class BrowserAuthPluginTest {
         val second = messenger.start("second")
         plugin.onPause()
         plugin.onNewIntent(Intent(Intent.ACTION_VIEW, Uri.parse(
-            "xyz.block.buzz.mobile:/auth/callback?state=first&code=old",
+            "ro.miraai.mira.mobile:/auth/callback?state=first&code=old",
         )))
         plugin.onResume() // Return caused by the stale callback, not dismissal.
         assertEquals(0, second.replies)
         plugin.onPause() // The current browser can still complete.
-        val callback = "xyz.block.buzz.mobile:/auth/callback?state=second&code=code"
+        val callback = "ro.miraai.mira.mobile:/auth/callback?state=second&code=code"
         plugin.onNewIntent(Intent(Intent.ACTION_VIEW, Uri.parse(callback)))
         plugin.onResume()
         assertEquals(callback, second.value)

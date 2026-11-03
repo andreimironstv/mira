@@ -63,7 +63,7 @@ class _ProfileSetupForm extends HookWidget {
           : 'Choose a display name',
       subtitle: choosingAvatar.value
           ? 'Let’s choose an avatar so people know it’s you.'
-          : 'Your display name is how people see you in Buzz. You can change it any time.',
+          : 'Your display name is how people see you in Mira. You can change it any time.',
       onBack: choosingAvatar.value && !busy.value ? back : null,
       content: choosingAvatar.value
           ? Padding(

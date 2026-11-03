@@ -278,8 +278,8 @@ impl RelayInfo {
         });
 
         Self {
-            name: "Buzz Relay".to_string(),
-            description: "Buzz — private team communication relay".to_string(),
+            name: "Mira Relay".to_string(),
+            description: "Mira — private team communication relay".to_string(),
             icon: icon.filter(|s| !s.is_empty()).map(|s| s.to_string()),
             read_state_snapshot: None,
             buzz_v1: None,

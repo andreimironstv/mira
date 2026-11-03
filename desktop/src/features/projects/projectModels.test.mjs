@@ -647,7 +647,7 @@ test("selectProjectRepository resolves a non-primary repository when repositoryI
   const primaryRepo = {
     id: `${OWNER}:buzz`,
     dtag: "buzz",
-    name: "Buzz",
+    name: "Mira",
     repoAddress: `30617:${OWNER}:buzz`,
     owner: OWNER,
     cloneUrls: [],
@@ -676,7 +676,7 @@ test("selectProjectRepository resolves a non-primary repository when repositoryI
   const project = {
     id: `30621:${OWNER}:buzz`,
     dtag: "buzz",
-    name: "Buzz",
+    name: "Mira",
     description: "",
     owner: OWNER,
     createdAt: 100,

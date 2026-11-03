@@ -470,7 +470,7 @@ test("code-entry phones advance without desktop confirmation", async ({
   await expect(card.getByTestId("confirm-sas")).toHaveCount(0);
   await expect(card.getByTestId("deny-sas")).toBeVisible();
   await expect(card.getByTestId("pairing-status")).toContainText(
-    "Enter this code in the Buzz app on your phone.",
+    "Enter this code in the Mira app on your phone.",
   );
   await waitForAnimations(page);
   mkdirSync(SCREENSHOT_DIR, { recursive: true });

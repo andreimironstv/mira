@@ -190,7 +190,7 @@ class NsecImportSheet extends HookWidget {
       return OnboardingStepPage(
         title: 'Import identity',
         subtitle:
-            'Bring your Buzz identity from another device. Check the public identity before continuing.',
+            'Bring your Mira identity from another device. Check the public identity before continuing.',
         onBack: () {
           if (cancelled.value || (onBack == null && busy.value)) return;
           cancelled.value = true;

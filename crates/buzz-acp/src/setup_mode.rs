@@ -279,17 +279,17 @@ impl SetupPayload {
             let footer = if has_doctor_requirement {
                 "Open Agent runtimes in Settings, install Git for Windows, then re-check and restart the agent.".to_string()
             } else if all_missing_binary {
-                "Install the missing binary or update PATH, then restart Buzz.".to_string()
+                "Install the missing binary or update PATH, then restart Mira.".to_string()
             } else if all_external {
                 // All requirements are external config files — Edit Agent cannot
                 // help. Don't send the user there.
                 "Fix the config file(s) and restart the agent.".to_string()
             } else if any_external {
                 // Mixed: some Buzz-managed fields, some external config.
-                "Open Edit Agent in the Buzz app for the Buzz-managed fields; fix the external CLI config files manually and restart the agent.".to_string()
+                "Open Edit Agent in the Mira app for the Mira-managed fields; fix the external CLI config files manually and restart the agent.".to_string()
             } else {
                 // All Buzz-managed — original footer unchanged.
-                "Open Edit Agent in the Buzz app to set these.".to_string()
+                "Open Edit Agent in the Mira app to set these.".to_string()
             };
 
             format!(
@@ -775,7 +775,7 @@ mod tests {
     #[test]
     fn setup_payload_deserializes_git_bash_requirement() {
         let payload: SetupPayload = serde_json::from_str(
-            r#"{"agent_name":"Buzz Agent","agent_pubkey":"test","requirements":[{"surface":"git_bash"}]}"#,
+            r#"{"agent_name":"Mira Agent","agent_pubkey":"test","requirements":[{"surface":"git_bash"}]}"#,
         )
         .unwrap();
         assert!(matches!(
@@ -797,7 +797,7 @@ mod tests {
         ));
         let body = payload.nudge_body();
         assert!(body.contains("install `buzz-pi-acp` or add it to PATH"));
-        assert!(body.contains("restart Buzz"));
+        assert!(body.contains("restart Mira"));
         assert!(!body.contains("Open Edit Agent"));
     }
 
@@ -1161,7 +1161,7 @@ mod tests {
     #[test]
     fn nudge_body_git_bash_copy_points_to_agent_runtimes() {
         let payload = SetupPayload {
-            agent_name: "Buzz Agent".to_string(),
+            agent_name: "Mira Agent".to_string(),
             agent_pubkey: "test".to_string(),
             requirements: vec![RequirementPayload::GitBash],
         };
@@ -1262,7 +1262,7 @@ mod tests {
         };
         let body = payload.nudge_body();
         assert!(
-            body.contains("Open Edit Agent in the Buzz app to set these."),
+            body.contains("Open Edit Agent in the Mira app to set these."),
             "all-managed nudge must use the original Edit Agent footer; got: {body:?}"
         );
     }

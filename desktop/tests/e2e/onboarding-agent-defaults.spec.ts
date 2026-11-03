@@ -12,7 +12,7 @@ function runtime(
     id,
     label:
       id === "buzz-agent"
-        ? "Buzz Agent"
+        ? "Mira Agent"
         : id === "claude"
           ? "Claude Code"
           : id === "codex"
@@ -136,7 +136,7 @@ test("setup filters the bundled harnesses by connection method", async ({
   ).toBeVisible();
   await expect(
     page.getByText(
-      "Choose your provider and enter an API key to connect to the Buzz harness.",
+      "Choose your provider and enter an API key to connect to the Mira harness.",
     ),
   ).toBeVisible();
   await expect(page.getByTestId("global-agent-default-harness")).toHaveCount(0);
@@ -243,7 +243,7 @@ test("setup filters the bundled harnesses by connection method", async ({
   await expect(page.getByTestId("onboarding-setup-next")).toHaveCount(0);
 });
 
-test("API selection opens Buzz config immediately while discovery is pending", async ({
+test("API selection opens Mira config immediately while discovery is pending", async ({
   page,
 }) => {
   await installMockBridge(
@@ -263,7 +263,7 @@ test("API selection opens Buzz config immediately while discovery is pending", a
   // Selecting API never waits on discovery or shows Buzz's generic auth step.
   await page.getByTestId("onboarding-harness-method-api").click();
   await expect(page.getByTestId("onboarding-page-config")).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Connect Buzz" })).toHaveCount(
+  await expect(page.getByRole("heading", { name: "Connect Mira" })).toHaveCount(
     0,
   );
   await expect(page.getByTestId("global-agent-provider")).toBeVisible();
@@ -278,7 +278,7 @@ test("API selection opens Buzz config immediately while discovery is pending", a
   await expect(page.getByTestId("onboarding-runtime-goose")).toBeVisible();
 });
 
-test("choosing signed-out Buzz skips the generic harness auth step", async ({
+test("choosing signed-out Mira skips the generic harness auth step", async ({
   page,
 }) => {
   await installMockBridge(
@@ -302,7 +302,7 @@ test("choosing signed-out Buzz skips the generic harness auth step", async ({
   await page.getByTestId("onboarding-runtime-details-buzz-agent").click();
 
   await expect(page.getByTestId("onboarding-page-config")).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Connect Buzz" })).toHaveCount(
+  await expect(page.getByRole("heading", { name: "Connect Mira" })).toHaveCount(
     0,
   );
   await expect(page.getByTestId("global-agent-provider")).toBeVisible();
@@ -320,7 +320,7 @@ test("setup distinguishes a missing CLI from an installed desktop app", async ({
           "not_installed",
           { status: "unknown" },
           {
-            install_hint: "Buzz talks to Codex through the Codex CLI.",
+            install_hint: "Mira talks to Codex through the Codex CLI.",
             install_instructions_url:
               "https://developers.openai.com/codex/cli/",
           },
@@ -587,7 +587,7 @@ test("sign in stays pending until catalog detection confirms Ready", async ({
     page.getByText("Claude subscription", { exact: true }),
   ).toBeVisible();
   await expect(
-    page.getByText("Buzz will open a sign-in window for Claude Code."),
+    page.getByText("Mira will open a sign-in window for Claude Code."),
   ).toBeVisible();
   const signIn = page.getByRole("button", { name: "Sign in to Claude Code" });
   await expect(signIn).toHaveText("Sign in");

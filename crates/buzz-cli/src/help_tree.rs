@@ -136,7 +136,7 @@ mod tests {
             "subcommand line missing or misaligned:\n{help}"
         );
         assert!(
-            help.contains("\n    draft-create                Open a prefilled create-agent form in the owner's Buzz Desktop\n"),
+            help.contains("\n    draft-create                Open a prefilled create-agent form in the owner's Mira Desktop\n"),
             "subcommand line missing or misaligned:\n{help}"
         );
     }

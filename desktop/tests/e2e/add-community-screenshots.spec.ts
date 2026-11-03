@@ -70,7 +70,7 @@ test("identity: npub-only account key is recovery, never a ready create flow", a
   // Presence of the identity object must not read as a ready account: the
   // mismatch recovery branch owns the create tab instead.
   await expect(
-    page.getByText("This Builderlab account uses a different Buzz identity."),
+    page.getByText("This Builderlab account uses a different Mira identity."),
   ).toBeVisible();
   await expect(page.getByText("Account: Unavailable")).toBeVisible();
   await expect(
@@ -114,7 +114,7 @@ test("identity: padded same-key hex is a ready create flow, not a mismatch", asy
   // The create form — and with it the create action — is available.
   await expect(page.getByTestId("hosted-community-create-name")).toBeVisible();
   await expect(
-    page.getByText("This Builderlab account uses a different Buzz identity."),
+    page.getByText("This Builderlab account uses a different Mira identity."),
   ).toHaveCount(0);
 });
 
@@ -221,7 +221,7 @@ test("identity: create owner shows the bound key's npub, never the hosted npub o
   await page.getByTestId("community-rail-add").click();
   await page.getByTestId("add-community-create").click();
   await expect(
-    page.getByText("This Builderlab account uses a different Buzz identity."),
+    page.getByText("This Builderlab account uses a different Mira identity."),
   ).toBeVisible();
   await expect(
     page.getByText(`Account: ${npubEncode("f".repeat(64))}`),
@@ -255,7 +255,7 @@ test("identity: create owner renders the neutral label when the bound hex is unu
   await page.getByTestId("community-rail-add").click();
   await page.getByTestId("add-community-create").click();
   await expect(
-    page.getByText("This Builderlab account uses a different Buzz identity."),
+    page.getByText("This Builderlab account uses a different Mira identity."),
   ).toBeVisible();
   await expect(page.getByText("Account: Unavailable")).toBeVisible();
   await expect(page.getByText(npubEncode("b".repeat(64)))).toHaveCount(0);

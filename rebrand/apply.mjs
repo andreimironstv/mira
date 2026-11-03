@@ -186,7 +186,7 @@ function inScope(path) {
 export function transform(path, text) {
   if (!inScope(path)) return text;
   const comment = CLI_HELP.test(path)
-    ? /^s*(//(?!/)|/*|*)/
+    ? /^\s*(\/\/(?!\/)|\/\*|\*)/
     : COMMENT_BY_EXT[path.split(".").pop()];
   let out = text;
   if (out.includes("Buzz")) {

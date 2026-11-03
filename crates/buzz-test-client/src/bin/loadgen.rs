@@ -14,7 +14,7 @@ use clap::{Parser, Subcommand};
 #[derive(Parser)]
 #[command(
     name = "buzz-loadgen",
-    about = "Scenario-driven Buzz relay load generator"
+    about = "Scenario-driven Mira relay load generator"
 )]
 struct Cli {
     #[command(subcommand)]

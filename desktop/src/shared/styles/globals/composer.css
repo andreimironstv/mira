@@ -262,7 +262,7 @@
    @mention. Their generated icon participates in the first line's inline
    flow: absolute positioning anchors it to the union of every wrapped line,
    and icon-sized left padding is cloned onto every continuation fragment.
-   Composer Buzz links are atom nodes with their own leading-fragment wrapper. */
+   Composer Mira links are atom nodes with their own leading-fragment wrapper. */
 .rich-text-composer .tiptap .mention-chip {
   overflow-wrap: anywhere;
   white-space: normal;
