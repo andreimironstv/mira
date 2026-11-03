@@ -627,7 +627,7 @@ fn extra_env_var_skipped_when_already_in_file_config_extra() {
 fn buzz_agent_runtime() -> &'static KnownAcpRuntime {
     &KnownAcpRuntime {
         id: "buzz-agent",
-        label: "Buzz Agent",
+        label: "Mira Agent",
         commands: &["buzz-agent"],
         aliases: &[],
         avatar_url: "",

@@ -87,7 +87,7 @@ thread_local! {
 /// `OnceLock` is set exactly once.
 ///
 /// `is_dev` should be `true` when the running binary is a dev build — i.e.
-/// when the Tauri app-data directory name starts with `"xyz.block.buzz.app.dev"`.
+/// when the Tauri app-data directory name starts with `"ro.miraai.app.dev"`.
 /// Pass `false` for production (signed DMG) builds.
 ///
 /// Unit tests panic here unless [`pin_nest_dir_for_test`] ran first, in which
@@ -610,7 +610,7 @@ pub fn render_dynamic_section(
         .filter(|a| !is_archived(a, archived))
         .collect();
     let active_agents = if live.is_empty() {
-        "## Active Agents\n\n*(No agents deployed yet. Add agents in the Buzz desktop app.)*"
+        "## Active Agents\n\n*(No agents deployed yet. Add agents in the Mira desktop app.)*"
             .to_string()
     } else {
         let mut table =

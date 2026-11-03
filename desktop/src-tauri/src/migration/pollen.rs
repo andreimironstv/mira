@@ -460,7 +460,7 @@ fn remove_pollen_from_legacy_fizz_name_pool(
 ) -> bool {
     const LEGACY_FIZZ_NAME_POOL: &[&str] = &[
         "Nectar", "Comet", "Bramble", "Clover", "Pollen", "Amber", "Daisy", "Mason", "Thistle",
-        "Waxwing", "Hive", "Meadow", "Juniper", "Aster", "Sage", "Willow", "Orchard", "Buzz",
+        "Waxwing", "Hive", "Meadow", "Juniper", "Aster", "Sage", "Willow", "Orchard", "Mira",
     ];
     let Some(names) = record
         .get("name_pool")

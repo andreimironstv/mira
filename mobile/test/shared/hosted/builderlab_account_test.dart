@@ -338,7 +338,7 @@ void main() {
     );
   });
 
-  test('authenticated post accepts only Buzz account routes', () async {
+  test('authenticated post accepts only Mira account routes', () async {
     final client = BuilderlabAccountClient(
       httpClient: MockClient((_) async => fail('no request expected')),
     );

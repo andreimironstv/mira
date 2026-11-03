@@ -38,7 +38,7 @@ class _ConnectionSection extends ConsumerWidget {
         ),
         AppListRow(
           title: 'Send identity to desktop',
-          subtitle: 'Scan a recovery code shown by Buzz Desktop',
+          subtitle: 'Scan a recovery code shown by Mira Desktop',
           trailing: const _RowChevron(),
           onTap: () async {
             final pairing = ref.read(pairingProvider.notifier);
@@ -64,7 +64,7 @@ class _ConnectionSection extends ConsumerWidget {
                 if (context.mounted) {
                   ScaffoldMessenger.of(context).showFeedbackSnackBar(
                     const SnackBar(
-                      content: Text('Couldn’t resume Buzz. Try again.'),
+                      content: Text('Couldn’t resume Mira. Try again.'),
                     ),
                     kind: ToastKind.error,
                   );

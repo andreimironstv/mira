@@ -17,7 +17,7 @@ async fn session_new_full_sends_pi_replacement_prompt_in_meta() {
         .session_new_full(
             "/tmp",
             vec![],
-            Some(SystemPromptTransport::PiMeta("Buzz instructions")),
+            Some(SystemPromptTransport::PiMeta("Mira instructions")),
             Some("Pi · #buzz-dev"),
         )
         .await
@@ -27,7 +27,7 @@ async fn session_new_full_sends_pi_replacement_prompt_in_meta() {
     assert!(received["params"].get("systemPrompt").is_none());
     assert_eq!(
         received["params"]["_meta"]["systemPrompt"].as_str(),
-        Some("Buzz instructions")
+        Some("Mira instructions")
     );
     assert_eq!(
         received["params"]["_meta"]["sessionTitle"].as_str(),

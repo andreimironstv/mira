@@ -54,7 +54,7 @@ void main() {
 
     test('relays are exact DNS hosts outside hosted communities', () {
       expect(
-        OrganizationEnvironment.parseRelayHosts(' Buzz.Block.Example.com ,a.b'),
+        OrganizationEnvironment.parseRelayHosts(' Mira.Block.Example.com ,a.b'),
         [relayHost, 'a.b'],
       );
       for (final relays in [

@@ -656,7 +656,7 @@
 
 /* ── Setup / cold-boot loading screen ───────────────────────────────────
    Theme-adaptive grainient background for the "setting up your community"
-   gate. Restored from pre-#1570; the animated Buzz mark is the hero (see
+   gate. Restored from pre-#1570; the animated Mira mark is the hero (see
    AppLoadingGate in app/App.tsx). */
 
 @property --buzz-grainient-x-0 {

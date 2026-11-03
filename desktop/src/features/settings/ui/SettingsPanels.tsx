@@ -576,7 +576,7 @@ function ThemeSettingsCard() {
           }}
         />
         {/* Bottom fade — hidden while the accent picker is visible so its
-            near-white gradient (Buzz light) can't mask the swatches below it
+            near-white gradient (Mira light) can't mask the swatches below it
             (the "white bar"). Kept only when the picker is hidden. */}
         {accentPickerHidden ? (
           <div
@@ -638,7 +638,7 @@ function ThemeSettingsCard() {
     >
       <SettingsSectionHeader
         title="Appearance"
-        description="Choose how Buzz looks and feels."
+        description="Choose how Mira looks and feels."
       />
 
       <SettingsOptionGroupList>
@@ -698,7 +698,7 @@ function ThemeSettingsCard() {
                 className="text-sm font-normal text-muted-foreground/70"
                 data-settings-subcopy
               >
-                Choose the colors used throughout Buzz.
+                Choose the colors used throughout Mira.
               </p>
             </div>
             <button

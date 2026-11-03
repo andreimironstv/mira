@@ -40,7 +40,7 @@ final class BuzzBrowserAuthBridge: NSObject, ASWebAuthenticationPresentationCont
       self.pending = result
       let attemptID = UUID()
       self.attemptID = attemptID
-      let session = ASWebAuthenticationSession(url: url, callbackURLScheme: "xyz.block.buzz.mobile") { [weak self] callback, error in
+      let session = ASWebAuthenticationSession(url: url, callbackURLScheme: "ro.miraai.mobile") { [weak self] callback, error in
         DispatchQueue.main.async {
           guard self?.attemptID == attemptID else { return }
           let cancelled = (error as? ASWebAuthenticationSessionError)?.code == .canceledLogin

@@ -67,13 +67,13 @@ android="$wt/mobile/android/worktree.properties"
 grep -q '^BUNDLE_IDENTIFIER = xyz\.block\.buzz\.dev\.mobile\.feature-work-1$' "$ios" \
   && pass "iOS bundle identifier keys to the sanitized worktree directory name" \
   || fail "iOS bundle identifier must key to the worktree dir, got: $(cat "$ios")"
-grep -q '^APP_DISPLAY_NAME = Buzz (Fix_Thing-2)$' "$ios" \
+grep -q '^APP_DISPLAY_NAME = Mira (Fix_Thing-2)$' "$ios" \
   && pass "iOS display name carries the branch label" \
   || fail "iOS display name wrong: $(cat "$ios")"
 grep -q '^label=Fix_Thing-2$' "$android" \
   && pass "Android label carries the branch label" \
   || fail "Android label wrong: $(cat "$android")"
-grep -q '^appName=Buzz (Fix_Thing-2)$' "$android" \
+grep -q '^appName=Mira (Fix_Thing-2)$' "$android" \
   && pass "Android app name defaults to the branch-labelled name" \
   || fail "Android app name wrong: $(cat "$android")"
 grep -q '^applicationIdSuffix=\.feature_work_1$' "$android" \
@@ -100,7 +100,7 @@ git -C "$wt" checkout -q -b "it's-\$a\"branch"
 grep -q "^label=it-s-a-branch$" "$android" \
   && pass "apostrophes and shell metacharacters are sanitized out of the label" \
   || fail "label must sanitize special chars, got: $(cat "$android")"
-grep -Eq "^APP_DISPLAY_NAME = Buzz \([A-Za-z0-9._-]+\)$" "$ios" \
+grep -Eq "^APP_DISPLAY_NAME = Mira \([A-Za-z0-9._-]+\)$" "$ios" \
   && pass "iOS display name only contains resource-safe characters" \
   || fail "iOS display name has unsafe characters: $(cat "$ios")"
 
@@ -124,17 +124,17 @@ grep -q '^applicationIdSuffix=\.w_2fast$' "$wt2/mobile/android/worktree.properti
   || fail "digit-leading dir segment wrong: $(cat "$wt2/mobile/android/worktree.properties")"
 
 # ── Explicit Android debug identity: readable and isolated ───────────────────
-BUZZ_ANDROID_DEBUG_APP_NAME="Buzz Huddles" \
+BUZZ_ANDROID_DEBUG_APP_NAME="Mira Huddles" \
   BUZZ_ANDROID_DEBUG_ID_SUFFIX=".huddles_829c" \
   "$wt/scripts/mobile-worktree-overrides.sh" > /dev/null
-grep -q '^appName=Buzz Huddles$' "$android" \
+grep -q '^appName=Mira Huddles$' "$android" \
   && pass "explicit Android debug app name is persisted" \
   || fail "explicit Android debug app name wrong: $(cat "$android")"
 grep -q '^applicationIdSuffix=\.huddles_829c$' "$android" \
   && pass "explicit Android debug suffix is persisted" \
   || fail "explicit Android debug suffix wrong: $(cat "$android")"
-grep -q '^APP_DISPLAY_NAME = Buzz (' "$ios" \
-  && ! grep -q 'Buzz Huddles' "$ios" \
+grep -q '^APP_DISPLAY_NAME = Mira (' "$ios" \
+  && ! grep -q 'Mira Huddles' "$ios" \
   && pass "Android debug overrides do not change the iOS identity" \
   || fail "Android debug overrides must not change iOS identity: $(cat "$ios")"
 
@@ -143,7 +143,7 @@ if BUZZ_ANDROID_DEBUG_ID_SUFFIX=".Huddles" "$wt/scripts/mobile-worktree-override
 else
   pass "invalid explicit Android debug suffix is rejected"
 fi
-if BUZZ_ANDROID_DEBUG_APP_NAME=$'Buzz Huddles\nInjected' "$wt/scripts/mobile-worktree-overrides.sh" >/dev/null 2>&1; then
+if BUZZ_ANDROID_DEBUG_APP_NAME=$'Mira Huddles\nInjected' "$wt/scripts/mobile-worktree-overrides.sh" >/dev/null 2>&1; then
   fail "unsafe explicit Android debug app name must be rejected"
 else
   pass "unsafe explicit Android debug app name is rejected"
@@ -158,7 +158,7 @@ plist="$repo_root/mobile/ios/Runner/Info.plist"
 
 grep -q '^BUNDLE_IDENTIFIER = xyz\.block\.buzz\.dev\.mobile$' "$debug_xcconfig" \
   && pass "Debug.xcconfig defaults to the development bundle identifier" \
-  || fail "Debug.xcconfig must default to xyz.block.buzz.dev.mobile"
+  || fail "Debug.xcconfig must default to ro.miraai.dev.mobile"
 grep -q 'WorktreeOverrides.xcconfig' "$debug_xcconfig" \
   && pass "Debug.xcconfig includes WorktreeOverrides" \
   || fail "Debug.xcconfig must include WorktreeOverrides.xcconfig"
@@ -169,7 +169,7 @@ if [[ -n "$worktree_line" && -n "$app_line" && "$worktree_line" -lt "$app_line" 
 else
   fail "Debug.xcconfig must include AppOverrides.xcconfig after WorktreeOverrides.xcconfig"
 fi
-grep -q '^ios_prefix="xyz.block.buzz.dev.mobile\."$' "$clean_script" \
+grep -q '^ios_prefix="ro.miraai.dev.mobile\."$' "$clean_script" \
   && pass "cleanup targets the iOS development worktree prefix" \
   || fail "cleanup must share the iOS development prefix used by worktree overrides"
 
@@ -178,10 +178,10 @@ grep -q 'WorktreeOverrides' "$release_xcconfig" \
   || pass "Release.xcconfig does not include WorktreeOverrides"
 grep -q '^BUNDLE_IDENTIFIER = xyz\.block\.buzz\.mobile$' "$release_xcconfig" \
   && pass "Release.xcconfig keeps the production bundle identifier" \
-  || fail "Release.xcconfig must keep BUNDLE_IDENTIFIER = xyz.block.buzz.mobile"
-grep -q '^APP_DISPLAY_NAME = Buzz$' "$release_xcconfig" \
+  || fail "Release.xcconfig must keep BUNDLE_IDENTIFIER = ro.miraai.mobile"
+grep -q '^APP_DISPLAY_NAME = Mira$' "$release_xcconfig" \
   && pass "Release.xcconfig keeps the production display name" \
-  || fail "Release.xcconfig must keep APP_DISPLAY_NAME = Buzz"
+  || fail "Release.xcconfig must keep APP_DISPLAY_NAME = Mira"
 
 grep -q '<string>$(APP_DISPLAY_NAME)</string>' "$plist" \
   && pass "Info.plist display name resolves from build settings" \
@@ -189,8 +189,8 @@ grep -q '<string>$(APP_DISPLAY_NAME)</string>' "$plist" \
 grep -q 'android:label="@string/app_name"' "$manifest" \
   && pass "Android manifest label resolves from resources" \
   || fail "Android manifest label must be @string/app_name"
-grep -q 'resValue("string", "app_name", "Buzz")' "$gradle" \
-  && pass "Gradle default app_name stays Buzz" \
+grep -q 'resValue("string", "app_name", "Mira")' "$gradle" \
+  && pass "Gradle default app_name stays Mira" \
   || fail "Gradle must declare the default app_name resValue"
 grep -q 'worktreeLabel.matches' "$gradle" \
   && pass "Gradle validates the worktree label before use" \
@@ -258,9 +258,9 @@ case "$1 $2" in
 esac
 if [[ "$1" == "devices" ]]; then exit 0; fi
 if [[ "$3 $4 $5" == "shell pm list" ]]; then
-  printf 'package:xyz.block.buzz.mobile\n'
-  printf 'package:xyz.block.buzz.mobile.feature_work_1\n'
-  printf 'package:xyz.block.buzz.mobile.w_2fast\n'
+  printf 'package:ro.miraai.mobile\n'
+  printf 'package:ro.miraai.mobile.feature_work_1\n'
+  printf 'package:ro.miraai.mobile.w_2fast\n'
   printf 'package:com.android.settings\n'
   exit 0
 fi

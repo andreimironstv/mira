@@ -51,11 +51,11 @@ test("pending external metadata reserves the image treatment", () => {
   });
 });
 
-test("pending Buzz entity metadata remains image-less", () => {
+test("pending Mira entity metadata remains image-less", () => {
   const entityPreview = {
     kind: "buzz-repository",
     href: `buzz://repo?owner=${"cd".repeat(32)}&d=buzz`,
-    provider: "Buzz",
+    provider: "Mira",
     title: "buzz",
     typeLabel: "repo",
   };
@@ -219,7 +219,7 @@ test("withEntityFallbacks re-adds previews dropped by null metadata", () => {
   const entityPreview = {
     kind: "buzz-pull-request",
     href: `buzz://pr?id=${"ab".repeat(32)}&owner=${"cd".repeat(32)}&d=buzz`,
-    provider: "Buzz",
+    provider: "Mira",
     title: `buzz #${"ab".repeat(4)}`,
     typeLabel: "Review",
   };
@@ -233,14 +233,14 @@ test("withEntityFallbacks keeps resolved previews and preserves order", () => {
   const first = {
     kind: "buzz-repository",
     href: `buzz://repo?owner=${"cd".repeat(32)}&d=buzz`,
-    provider: "Buzz",
+    provider: "Mira",
     title: "buzz",
     typeLabel: "repo",
   };
   const second = {
     kind: "buzz-issue",
     href: `buzz://issue?id=${"ef".repeat(32)}&owner=${"cd".repeat(32)}&d=buzz`,
-    provider: "Buzz",
+    provider: "Mira",
     title: `buzz #${"ef".repeat(4)}`,
     typeLabel: "Task",
   };
@@ -290,7 +290,7 @@ function relayEvent({
   return { id, kind, pubkey, created_at: createdAt, content, tags, sig: "" };
 }
 
-test("Buzz PR metadata includes repository identity and trusted root context", async () => {
+test("Mira PR metadata includes repository identity and trusted root context", async () => {
   const owner = "cd".repeat(32);
   const attacker = "ef".repeat(32);
   const id = "ab".repeat(32);
@@ -303,7 +303,7 @@ test("Buzz PR metadata includes repository identity and trusted root context", a
       pubkey: owner,
       tags: [
         ["d", "buzz"],
-        ["name", "Buzz Desktop"],
+        ["name", "Mira Desktop"],
         ["default-branch", "main"],
       ],
     }),
@@ -371,14 +371,14 @@ test("Buzz PR metadata includes repository identity and trusted root context", a
     `buzz://pr?id=${id}&owner=${owner}&d=buzz`,
     fetchEvents,
   );
-  assert.equal(result?.siteName, "Buzz Desktop");
+  assert.equal(result?.siteName, "Mira Desktop");
   assert.equal(result?.title, "Restore entity cards");
   assert.equal(result?.description, null);
   assert.equal(result?.faviconDataUrl, null);
   assert.equal(result?.imageDataUrl, null);
 });
 
-test("Buzz entity roots reject ambiguous repository tags", async () => {
+test("Mira entity roots reject ambiguous repository tags", async () => {
   const owner = "cd".repeat(32);
   const attacker = "ef".repeat(32);
   const targetAddress = `30617:${owner}:buzz`;
@@ -389,7 +389,7 @@ test("Buzz entity roots reject ambiguous repository tags", async () => {
     pubkey: owner,
     tags: [
       ["d", "buzz"],
-      ["name", "Buzz Desktop"],
+      ["name", "Mira Desktop"],
       ["default-branch", "main"],
     ],
   });
@@ -422,7 +422,7 @@ test("Buzz entity roots reject ambiguous repository tags", async () => {
   }
 });
 
-test("Buzz repository metadata stays image-less and exposes default branch", async () => {
+test("Mira repository metadata stays image-less and exposes default branch", async () => {
   const owner = "cd".repeat(32);
   const result = await fetchBuzzEntityMetadata(
     `buzz://repo?owner=${owner}&d=relay-tools`,
@@ -450,7 +450,7 @@ test("Buzz repository metadata stays image-less and exposes default branch", asy
   assert.equal(result?.imageDomain, null);
 });
 
-test("Buzz project metadata resolves from the 30621 announcement", async () => {
+test("Mira project metadata resolves from the 30621 announcement", async () => {
   const owner = "cd".repeat(32);
   const result = await fetchBuzzEntityMetadata(
     `buzz://project?owner=${owner}&d=pollinator`,
@@ -475,7 +475,7 @@ test("Buzz project metadata resolves from the 30621 announcement", async () => {
   assert.equal(result?.imageDataUrl, null);
 });
 
-test("Buzz project metadata declines a missing or invalid announcement", async () => {
+test("Mira project metadata declines a missing or invalid announcement", async () => {
   const owner = "cd".repeat(32);
   assert.equal(
     await fetchBuzzEntityMetadata(

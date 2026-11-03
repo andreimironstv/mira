@@ -4,8 +4,8 @@
 // Defaults for the iOS Release build. Internal/custom builds (e.g. an
 // enterprise-signed distribution) override these without patching tracked
 // files by writing `mobile/ios/Flutter/AppOverrides.xcconfig` (gitignored).
-BUNDLE_IDENTIFIER = xyz.block.buzz.mobile
-APP_DISPLAY_NAME = Buzz
+BUNDLE_IDENTIFIER = ro.miraai.mobile
+APP_DISPLAY_NAME = Mira
 CODE_SIGN_STYLE = Automatic
 CODE_SIGN_IDENTITY = iPhone Developer
 BUZZ_DEVELOPMENT_TEAM = EYF346PHUG

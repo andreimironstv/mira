@@ -67,7 +67,7 @@ async fn cmd_add_channel_draft(
         object.insert("saved".into(), false.into());
         object.insert(
             "message".into(),
-            "Project channel draft sent to Buzz Desktop for owner review. The channel is not created until the owner approves it."
+            "Project channel draft sent to Mira Desktop for owner review. The channel is not created until the owner approves it."
                 .into(),
         );
     }

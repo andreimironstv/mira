@@ -7,7 +7,7 @@ fn test_demo_reset_preserves_shared_and_other_build_state() {
     let app_data = tmp
         .path()
         .join("Application Support")
-        .join("xyz.block.buzz.app.demo.current-1234567812345678");
+        .join("ro.miraai.app.demo.current-1234567812345678");
     let demo_nest = home.join(".buzz-demo-current-1234567812345678");
     let prod_nest = home.join(".buzz");
     let other_demo_nest = home.join(".buzz-demo-other-8765432187654321");

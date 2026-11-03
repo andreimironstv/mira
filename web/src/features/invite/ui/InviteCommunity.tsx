@@ -6,7 +6,7 @@ export function communityName(name: unknown, host: string): string {
   if (
     typeof name === "string" &&
     name.trim() &&
-    name !== "Buzz Relay" &&
+    name !== "Mira Relay" &&
     name !== host
   )
     return name;

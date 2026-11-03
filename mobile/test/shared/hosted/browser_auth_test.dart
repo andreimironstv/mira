@@ -100,7 +100,7 @@ void main() {
         '${BrowserAuth.callback}?code=x',
         '${BrowserAuth.callback}?state=wrong&code=x',
         '${BrowserAuth.callback}?state=$state&state=$state&code=x',
-        'xyz.block.buzz.mobile://auth/callback?state=$state&code=x',
+        'ro.miraai.mobile://auth/callback?state=$state&code=x',
         '${BrowserAuth.callback}/?state=$state&code=x',
         '${BrowserAuth.callback}?state=$state&code=x#fragment',
       ]) {

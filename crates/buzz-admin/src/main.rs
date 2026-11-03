@@ -44,7 +44,7 @@ use sqlx::Row;
 use tracing::warn;
 
 #[derive(Parser)]
-#[command(name = "buzz-admin", about = "Buzz instance administration")]
+#[command(name = "buzz-admin", about = "Mira instance administration")]
 struct Cli {
     #[command(subcommand)]
     command: Command,

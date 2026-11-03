@@ -49,7 +49,7 @@ void main() {
         tester.view.viewPadding = FakeViewPadding(top: 47, bottom: 34);
         addTearDown(tester.view.reset);
         PackageInfo.setMockInitialValues(
-          appName: 'Buzz',
+          appName: 'Mira',
           packageName: 'xyz.block.buzz',
           version: '0.16.0',
           buildNumber: '432',

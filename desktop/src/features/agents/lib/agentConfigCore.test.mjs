@@ -46,7 +46,7 @@ function field(model, kind) {
   return model.fields.find((candidate) => candidate.kind === kind);
 }
 
-test("Buzz Agent exposes provider, model, and Buzz-owned effort", () => {
+test("Mira Agent exposes provider, model, and Mira-owned effort", () => {
   const model = deriveAgentConfigFieldModel({
     config,
     runtime: runtime("buzz-agent", {

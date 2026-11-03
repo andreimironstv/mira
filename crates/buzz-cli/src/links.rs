@@ -31,7 +31,7 @@ pub struct MessageLink {
 /// configured for this CLI process. It cannot override the relay or identity.
 pub fn parse_message_link(input: &str) -> Result<MessageLink, CliError> {
     let url = url::Url::parse(input.trim())
-        .map_err(|_| CliError::Usage("invalid Buzz message link".into()))?;
+        .map_err(|_| CliError::Usage("invalid Mira message link".into()))?;
 
     if url.scheme() != "buzz"
         || url.host_str() != Some("message")
@@ -55,31 +55,31 @@ pub fn parse_message_link(input: &str) -> Result<MessageLink, CliError> {
             "thread" => &mut thread,
             _ => {
                 return Err(CliError::Usage(
-                    "Buzz message link contains an unsupported query parameter".into(),
+                    "Mira message link contains an unsupported query parameter".into(),
                 ))
             }
         };
         if slot.replace(value.into_owned()).is_some() {
             return Err(CliError::Usage(format!(
-                "Buzz message link contains more than one {key} parameter"
+                "Mira message link contains more than one {key} parameter"
             )));
         }
     }
 
     let channel = channel
         .filter(|value| !value.is_empty())
-        .ok_or_else(|| CliError::Usage("Buzz message link is missing channel".into()))?;
+        .ok_or_else(|| CliError::Usage("Mira message link is missing channel".into()))?;
     let message = message
         .filter(|value| !value.is_empty())
-        .ok_or_else(|| CliError::Usage("Buzz message link is missing id".into()))?;
+        .ok_or_else(|| CliError::Usage("Mira message link is missing id".into()))?;
     if thread.as_deref() == Some("") {
         return Err(CliError::Usage(
-            "Buzz message link contains an empty thread parameter".into(),
+            "Mira message link contains an empty thread parameter".into(),
         ));
     }
 
     let channel_id = uuid::Uuid::parse_str(&channel)
-        .map_err(|_| CliError::Usage("Buzz message link contains an invalid channel UUID".into()))?
+        .map_err(|_| CliError::Usage("Mira message link contains an invalid channel UUID".into()))?
         .to_string();
     let message_id = canonical_event_id(&message, "id")?;
     let thread_root_id = thread
@@ -97,7 +97,7 @@ pub fn parse_message_link(input: &str) -> Result<MessageLink, CliError> {
 fn canonical_event_id(value: &str, parameter: &str) -> Result<String, CliError> {
     if value.len() != 64 || !value.chars().all(|character| character.is_ascii_hexdigit()) {
         return Err(CliError::Usage(format!(
-            "Buzz message link contains an invalid {parameter} event ID"
+            "Mira message link contains an invalid {parameter} event ID"
         )));
     }
     Ok(value.to_ascii_lowercase())

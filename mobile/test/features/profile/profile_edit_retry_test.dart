@@ -593,7 +593,7 @@ class _RetryProfileNotifier extends ProfileNotifier {
   Future<UserProfile?> build() async => const UserProfile(
     pubkey: 'aabb',
     displayName: 'Alice',
-    about: 'Building Buzz',
+    about: 'Building Mira',
   );
 
   @override
@@ -622,7 +622,7 @@ class _CommunityChangedProfileNotifier extends ProfileNotifier {
   Future<UserProfile?> build() async => const UserProfile(
     pubkey: 'aabb',
     displayName: 'Alice',
-    about: 'Building Buzz',
+    about: 'Building Mira',
   );
 
   @override
@@ -640,7 +640,7 @@ class _DeferredFailureProfileNotifier extends ProfileNotifier {
   Future<UserProfile?> build() async => const UserProfile(
     pubkey: 'aabb',
     displayName: 'Alice',
-    about: 'Building Buzz',
+    about: 'Building Mira',
   );
 
   @override

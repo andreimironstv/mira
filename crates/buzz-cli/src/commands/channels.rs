@@ -1209,7 +1209,7 @@ fn apply_cardinality_rule(
                 return Err(CliError::Usage(format!(
                     "persona '{slug}' has {} live instances for this owner ({}); \
                      pass a template with a single instance per persona, or resolve \
-                     the duplicate in Buzz Desktop before creating the channel",
+                     the duplicate in Mira Desktop before creating the channel",
                     many.len(),
                     candidates.join(", ")
                 )));
@@ -2183,15 +2183,15 @@ mod tests {
 
     #[test]
     fn name_matches_substring_case_insensitive() {
-        assert!(name_matches("Buzz-Chat-Composer", "composer", false));
-        assert!(name_matches("Buzz-Chat-Composer", "buzz", false));
+        assert!(name_matches("Mira-Chat-Composer", "composer", false));
+        assert!(name_matches("Mira-Chat-Composer", "buzz", false));
         assert!(!name_matches("design", "composer", false));
     }
 
     #[test]
     fn name_matches_exact_case_insensitive() {
         assert!(name_matches("Buzz", "buzz", true));
-        assert!(!name_matches("Buzz-Chat", "buzz", true));
+        assert!(!name_matches("Mira-Chat", "buzz", true));
     }
 
     #[test]

@@ -717,7 +717,7 @@ void main() {
     expect(soloReads, before + 1);
   });
 
-  testWidgets('keeps the Buzz background fixed behind the channels list', (
+  testWidgets('keeps the Mira background fixed behind the channels list', (
     tester,
   ) async {
     await tester.pumpWidget(
