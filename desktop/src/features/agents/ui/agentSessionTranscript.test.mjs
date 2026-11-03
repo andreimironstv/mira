@@ -1912,7 +1912,7 @@ test("buildTranscript five-section system prompt card is standalone with all sec
   );
   // Must have Buzz event and Thread context sections, NOT Base/System/Team Instructions/Core Memory/Channel Canvas.
   assert.ok(
-    contextSectionTitles.some((t) => t.toLowerCase().includes("mira")),
+    contextSectionTitles.some((t) => t.toLowerCase().includes("buzz")),
     "prompt context must contain a Mira event section",
   );
   assert.ok(

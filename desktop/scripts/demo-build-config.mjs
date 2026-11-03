@@ -2,7 +2,7 @@ import { randomBytes } from "node:crypto";
 import { writeFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 
-const PRODUCTION_IDENTIFIER = "ro.miraai.app";
+const PRODUCTION_IDENTIFIER = "ro.miraai.mira.app";
 // The build ID suffix is 17 characters including its separator, and the Rust
 // build contract caps the complete demo slug at 48 ASCII bytes.
 const MAX_DEMO_SLUG_LENGTH = 48;

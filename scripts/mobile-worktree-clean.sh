@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 # Uninstalls stale worktree-suffixed Buzz debug builds from booted iOS
 # simulators and connected Android devices/emulators. Unsuffixed app installs
-# (`ro.miraai.dev.mobile` and `ro.miraai.mobile`) are never
+# (`ro.miraai.mira.dev.mobile` and `ro.miraai.mira.mobile`) are never
 # touched. Only identifiers with a worktree suffix appended after the development
 # or production id are matched. Run `just mobile-clean` (or this script
 # directly); pass --dry-run to list what would be removed without uninstalling.
 set -euo pipefail
 
-ios_prefix="ro.miraai.dev.mobile."
-android_prefix="ro.miraai.mobile."
+ios_prefix="ro.miraai.mira.dev.mobile."
+android_prefix="ro.miraai.mira.mobile."
 
 dry_run=0
 if [[ "${1:-}" == "--dry-run" ]]; then

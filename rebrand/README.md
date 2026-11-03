@@ -59,6 +59,6 @@ compatibility:
   Builderlab hosted-community flow (`app.builderlab.xyz`) still point at the
   original operators. Move them once `mira-ai.ro` services are deployed.
 
-App IDs are `ro.miraai.app` (desktop) and `ro.miraai.mobile` (mobile). The
+App IDs are `ro.miraai.mira.app` (desktop) and `ro.miraai.mira.mobile` (mobile). The
 Android `namespace` and Kotlin packages keep `xyz.block.buzz.mobile`, which users
 never see. The UI keeps the original color palette by decision.

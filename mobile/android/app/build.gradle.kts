@@ -151,7 +151,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "ro.miraai.mobile"
+        applicationId = "ro.miraai.mira.mobile"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion

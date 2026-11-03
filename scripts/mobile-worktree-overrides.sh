@@ -75,7 +75,7 @@ case "$android_slug" in
     [0-9]*) android_slug="w_$android_slug" ;;
 esac
 
-ios_bundle_id="ro.miraai.dev.mobile.${ios_slug}"
+ios_bundle_id="ro.miraai.mira.dev.mobile.${ios_slug}"
 android_app_name="${BUZZ_ANDROID_DEBUG_APP_NAME:-Mira (${label})}"
 android_suffix="${BUZZ_ANDROID_DEBUG_ID_SUFFIX:-.${android_slug}}"
 
@@ -107,4 +107,4 @@ PROPERTIES
 
 # The printed identifiers are the generated defaults; on iOS a developer's
 # AppOverrides.xcconfig may override them per variable.
-echo "📱 Worktree ${worktree_name}: iOS label \"${label}\" (${ios_bundle_id}); Android label \"${android_app_name}\" (ro.miraai.mobile${android_suffix})"
+echo "📱 Worktree ${worktree_name}: iOS label \"${label}\" (${ios_bundle_id}); Android label \"${android_app_name}\" (ro.miraai.mira.mobile${android_suffix})"

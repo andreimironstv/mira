@@ -87,7 +87,7 @@ thread_local! {
 /// `OnceLock` is set exactly once.
 ///
 /// `is_dev` should be `true` when the running binary is a dev build — i.e.
-/// when the Tauri app-data directory name starts with `"ro.miraai.app.dev"`.
+/// when the Tauri app-data directory name starts with `"ro.miraai.mira.app.dev"`.
 /// Pass `false` for production (signed DMG) builds.
 ///
 /// Unit tests panic here unless [`pin_nest_dir_for_test`] ran first, in which

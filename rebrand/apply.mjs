@@ -75,7 +75,9 @@ const PROTECTED_LINE = [
 ];
 
 // `\b` misses the name right after an escaped newline or tab, as in "\nBuzz".
-const PRODUCT_NAME = /(?:(?<=[\x5c][ntr])|\b)Buzz\b/g;
+// A lowercase-insensitive host such as "Buzz.Example" is test input, not the name.
+const PRODUCT_NAME =
+  /(?:(?<=[\x5c][ntr])|\b)Buzz\b(?!\.(?!(?:app|exe|dmg|iconset)\b)[A-Za-z])/g;
 
 const markSvg = () =>
   readFileSync(join(ROOT, "rebrand/brand/mira-mark.svg"), "utf8")
@@ -85,30 +87,30 @@ const markSvg = () =>
 // Targeted edits for what the word rule cannot express.
 const FILE_RULES = [
   {
-    // App identity. Not a hyphen: Android forbids it in applicationId, and
-    // Apple forbids the underscore Android would suggest, hence `miraai`.
+    // App identity, the same length as upstream's so no line ever reflows
+    // under rustfmt. Also matches the regex-escaped form in shell assertions.
     file: /^(?!mobile\/android\/)/,
-    // Also matches the regex-escaped form used by shell test assertions.
     from: /xyz([\x5c]*\.)block\1buzz\1(app|dev\1mobile|mobile)\b/g,
-    to: (_, dot, id) => `ro${dot}miraai${dot}${id}`,
+    to: (_, dot, id) => `ro${dot}miraai${dot}mira${dot}${id}`,
   },
   {
     // Android: only the application ID and callback scheme. The `namespace`
     // and Kotlin packages stay, so upstream's source tree needs no moving.
     file: /^mobile\/android\//,
     from: /(?<!namespace = )"xyz\.block\.buzz\.mobile(?=["':])/g,
-    to: () => '"ro.miraai.mobile',
+    to: () => '"ro.miraai.mira.mobile',
   },
   {
-    file: /^desktop\/src\/features\/agents\/ui\/agentSessionTranscript\.test\.mjs$/,
-    from: /toLowerCase\(\)\.includes\("buzz"\)/g,
-    to: () => 'toLowerCase().includes("mira")',
+    // The theme's label derives from its `buzz` key.
+    file: /^mobile\/lib\/shared\/theme\/theme_pairs\.dart$/,
+    from: /(String pairedThemeLabel\(String \w+\) \{\n)(?! {2}if \(isBuzzTheme)/,
+    to: (_, head) => `${head}  if (isBuzzTheme(lightName)) return 'Mira';\n`,
   },
   {
-    // Lower-cased comparisons against section titles produced by the word rule.
-    file: /\.(ts|tsx|mjs|dart)$/,
-    from: /(["'])buzz event/g,
-    to: (_, quote) => `${quote}mira event`,
+    // The boot splash shows the static mark, which has no wings to animate.
+    file: /^desktop\/tests\/e2e\/boot-splash\.spec\.ts$/,
+    from: /  \/\/ The bee is actually animating[\s\S]*?expect\(wingState\)[^\n]*\n\n/,
+    to: () => "",
   },
   { file: /^desktop\/scripts\//, from: /\bBuzz(?=_)/g, to: () => "Mira" },
   {

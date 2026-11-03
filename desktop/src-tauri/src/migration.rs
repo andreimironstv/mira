@@ -2,7 +2,7 @@
 //!
 //! **Worktree sync** (`sync_shared_agent_data`): Per-launch symlink creation
 //! from the current worktree data directory to the canonical dev data
-//! directory (`ro.miraai.app.dev`). Only runs when
+//! directory (`ro.miraai.mira.app.dev`). Only runs when
 //! `BUZZ_SHARE_IDENTITY=1` and `BUZZ_PRIVATE_KEY` is set. All dev
 //! instances share the same physical files — edits in any worktree are
 //! immediately visible to all others.
@@ -21,7 +21,7 @@ use tauri::Manager;
 
 use crate::util::replace_with_symlink;
 
-const CANONICAL_DEV_IDENTIFIER: &str = "ro.miraai.app.dev";
+const CANONICAL_DEV_IDENTIFIER: &str = "ro.miraai.mira.app.dev";
 const LEGACY_CANONICAL_DEV_IDENTIFIER: &str = "xyz.block.sprout.app.dev";
 const LEGACY_RELEASE_IDENTIFIER: &str = "xyz.block.sprout.app";
 
@@ -41,8 +41,8 @@ const SHARED_AGENT_DIRS: &[&str] = &["agents/teams"];
 
 /// Returns `true` when `name` is a dev data dir name — i.e. it is exactly the
 /// canonical dev identifier or a worktree variant separated by a `.` (e.g.
-/// `ro.miraai.app.dev.my-branch`). Rejects prefix-collisions such as
-/// `ro.miraai.app.developer`. This is the authoritative dev/prod
+/// `ro.miraai.mira.app.dev.my-branch`). Rejects prefix-collisions such as
+/// `ro.miraai.mira.app.developer`. This is the authoritative dev/prod
 /// discriminator shared by `run_boot_migrations`, `sync_shared_agent_data`,
 /// and `reconcile_target_dir`.
 pub(crate) fn is_dev_data_dir_name(name: &str) -> bool {
@@ -60,8 +60,8 @@ pub(crate) fn legacy_app_data_dir(current: &Path) -> Option<PathBuf> {
     let name = current.file_name()?.to_str()?;
     let legacy_name = if name.starts_with(CANONICAL_DEV_IDENTIFIER) {
         name.replacen(CANONICAL_DEV_IDENTIFIER, LEGACY_CANONICAL_DEV_IDENTIFIER, 1)
-    } else if name.starts_with("ro.miraai.app") {
-        name.replacen("ro.miraai.app", LEGACY_RELEASE_IDENTIFIER, 1)
+    } else if name.starts_with("ro.miraai.mira.app") {
+        name.replacen("ro.miraai.mira.app", LEGACY_RELEASE_IDENTIFIER, 1)
     } else {
         return None;
     };

@@ -215,7 +215,7 @@ mod tests {
     fn validate_community_host_accepts_only_bare_host_and_port() {
         for (input, expected) in [
             ("buzz.example", "buzz.example"),
-            ("Mira.Example", "buzz.example"),
+            ("Buzz.Example", "buzz.example"),
             ("buzz.example:443", "buzz.example"),
             ("localhost:3000", "localhost:3000"),
             ("a-1.b2", "a-1.b2"),

@@ -73,8 +73,8 @@ set -euo pipefail
 # real invocation ever uses. Keychain service/account stay overridable because
 # they are read-only against prod (used to fixture-test the identity read).
 SUPPORT="$HOME/Library/Application Support"
-PROD_DIR="$SUPPORT/ro.miraai.app"
-DEV_DIR="$SUPPORT/ro.miraai.app.dev"
+PROD_DIR="$SUPPORT/ro.miraai.mira.app"
+DEV_DIR="$SUPPORT/ro.miraai.mira.app.dev"
 KEYCHAIN_SVC="${BUZZ_KEYCHAIN_SVC:-buzz-desktop}"
 KEYCHAIN_ACCT="${BUZZ_KEYCHAIN_ACCT:-secrets}"
 
