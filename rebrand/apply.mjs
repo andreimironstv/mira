@@ -67,7 +67,7 @@ const COMMENT_BY_EXT = {
 // Where the word is an identifier or test input rather than the product name.
 const PROTECTED_LINE = [
   /^\s*(@testable\s+)?import\s+Buzz\b/,
-  /name_matches\("Buzz"/,
+  /name_matches\("Buzz/,
   /Based on <a href="https:\/\/github\.com\/block\/buzz">Buzz<\/a>/,
   // Case-insensitive matching fixtures: the query and the name must stay paired.
   /:Buzz:/,
