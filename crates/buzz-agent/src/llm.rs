@@ -7820,7 +7820,7 @@ mod tests {
             "got: {header_str}"
         );
         assert!(
-            header_str.contains("x-openrouter-title: buzz"),
+            header_str.contains("x-openrouter-title: mira"),
             "got: {header_str}"
         );
     }

@@ -92,6 +92,12 @@ const CLI_HELP =
 // Targeted edits for what the word rule cannot express.
 const FILE_RULES = [
   {
+    // HTTP header values arrive lower-cased in this test's raw request.
+    file: /^crates\/buzz-agent\/src\/llm\.rs$/,
+    from: /x-openrouter-title: buzz/g,
+    to: () => "x-openrouter-title: mira",
+  },
+  {
     // Lower-cased comparisons against section titles produced by the word rule.
     file: /\.(ts|tsx|mjs|dart)$/,
     from: /(["'])buzz event/g,
