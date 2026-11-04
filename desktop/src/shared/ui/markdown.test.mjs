@@ -942,7 +942,7 @@ function nudgeBody(agentPubkey) {
     "**Fizz** needs configuration before it can respond:",
     "- set `ANTHROPIC_API_KEY` in Edit Agent → Environment variables",
     "",
-    "Open Edit Agent in the Buzz app to set these.",
+    "Open Edit Agent in the Mira app to set these.",
     "",
     "```buzz:config-nudge",
     JSON.stringify({
@@ -1068,7 +1068,7 @@ test("nudgeGuard_noSentinel_proseRenderedCardAbsent", () => {
   );
 });
 
-test("bare Buzz permalinks render cohesive icon-prefixed chips", () => {
+test("bare Mira permalinks render cohesive icon-prefixed chips", () => {
   const channelId = "580ca78b-9dae-46f3-8854-bd671853ba32";
   const messageLink = `buzz://message?channel=${channelId}&id=${EVENT_HEX}`;
   const compatibilityMessageLink = `buzz://channel/${channelId}/${EVENT_HEX}`;
@@ -1228,7 +1228,7 @@ test("inline message chips omit fetched metadata and the event hash", () => {
   assert.doesNotMatch(visibleText, /·/);
 });
 
-test("authored Buzz permalink labels remain ordinary links", () => {
+test("authored Mira permalink labels remain ordinary links", () => {
   const channelId = "580ca78b-9dae-46f3-8854-bd671853ba32";
   const links = [
     `[the message](buzz://message?channel=${channelId}&id=${EVENT_HEX})`,
@@ -1310,7 +1310,7 @@ test("generic audio attachments render outside paragraph markup", () => {
   assert.doesNotMatch(html, /<p[^>]*>\s*<div/);
 });
 
-test("bare Buzz permalinks shorten unavailable channel identifiers", () => {
+test("bare Mira permalinks shorten unavailable channel identifiers", () => {
   const channelId = "580ca78b-9dae-46f3-8854-bd671853ba32";
   const markdown = renderCachedMarkdown({
     components: createMarkdownComponents(true, false),
@@ -1448,7 +1448,7 @@ test("agent mentions retain the bot treatment instead of the human icon", () => 
   assert.doesNotMatch(html, />@alice</);
 });
 
-test("renderEntityLinkAnchor renders Buzz entity links as chips", () => {
+test("renderEntityLinkAnchor renders Mira entity links as chips", () => {
   const prLink = `buzz://pr?id=${EVENT_HEX}&owner=${OWNER_HEX}&d=buzz-world`;
   const el = renderEntityLinkAnchor({
     children: "PR · abc123",

@@ -34,11 +34,11 @@ fn failure(
         success: false,
         stdout: String::new(),
         stderr: format!(
-            "The installer finished, but Buzz still could not use {runtime_id} (observed: {observed})."
+            "The installer finished, but Mira still could not use {runtime_id} (observed: {observed})."
         ),
         exit_code: None,
         hint: Some(
-            "Buzz requires the vendor CLI executable, not only its desktop app. If the CLI was installed while Buzz was open, restart Buzz and check again."
+            "Mira requires the vendor CLI executable, not only its desktop app. If the CLI was installed while Mira was open, restart Mira and check again."
                 .to_string(),
         ),
     })

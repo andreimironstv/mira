@@ -43,7 +43,7 @@ class BrowserAuth {
     _owners.add(this);
   }
 
-  static const callback = 'xyz.block.buzz.mobile:/auth/callback';
+  static const callback = 'ro.miraai.mira.mobile:/auth/callback';
   static final _owners = <BrowserAuth>{};
 
   /// The account origin this owner signs in to.
@@ -80,13 +80,13 @@ class BrowserAuth {
     _initialized = true;
     final links = AppLinks();
     _links = links.uriLinkStream.listen((uri) {
-      if (uri.scheme == 'xyz.block.buzz.mobile') {
+      if (uri.scheme == 'ro.miraai.mira.mobile') {
         unawaited(receive(uri).catchError((Object _) {}));
       }
     }, onError: (Object _) => _fail(BrowserAuthFailure.unavailable));
     try {
       final initial = await links.getInitialLink();
-      if (initial != null && initial.scheme == 'xyz.block.buzz.mobile') {
+      if (initial != null && initial.scheme == 'ro.miraai.mira.mobile') {
         await receive(initial);
       }
     } catch (_) {

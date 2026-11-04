@@ -2281,7 +2281,7 @@ async fn openrouter_post(
             .post(url)
             .header("content-type", "application/json")
             .header("HTTP-Referer", "https://github.com/block/buzz")
-            .header("X-OpenRouter-Title", "Buzz")
+            .header("X-OpenRouter-Title", "Mira")
             .bearer_auth(bearer)
             .body(body_bytes.clone())
             .timeout(per_request_timeout)
@@ -7820,7 +7820,7 @@ mod tests {
             "got: {header_str}"
         );
         assert!(
-            header_str.contains("x-openrouter-title: buzz"),
+            header_str.contains("x-openrouter-title: mira"),
             "got: {header_str}"
         );
     }

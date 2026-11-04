@@ -1,5 +1,5 @@
 {
-  "description": "Buzz HPKE nsec backup v1 Kotlin interop fixture; keys are test-only",
+  "description": "Mira HPKE nsec backup v1 Kotlin interop fixture; keys are test-only",
   "recipient_public_key_sec1_hex": "04c5b6519400186a8e10abbdc05d3e450c8612e5dba06927091527110324acfb0371d98d662395d872fae967fe75ef24db20a7c2c1af19c34422d94f629b1b1dad",
   "recipient_private_key_hex": "7ad00e296b224923f735144f3cc7e49746c8e3ebf20b8002d0a73998467d8f78",
   "nostr_secret_key_hex": "4242424242424242424242424242424242424242424242424242424242424242",

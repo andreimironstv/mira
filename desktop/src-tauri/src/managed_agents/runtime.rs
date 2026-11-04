@@ -33,7 +33,7 @@ fn apply_custom_acp_git_credentials(
     }
     let Some(helper) = credential_helper else {
         eprintln!(
-            "buzz-desktop: git-credential-nostr not found — custom ACP command will not have automatic Buzz git auth"
+            "buzz-desktop: git-credential-nostr not found — custom ACP command will not have automatic Mira git auth"
         );
         return;
     };

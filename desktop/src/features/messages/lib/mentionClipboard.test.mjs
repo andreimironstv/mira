@@ -141,7 +141,7 @@ test("rich copies declare their own flavor", () => {
 
 // ── getBuzzCopyKind ───────────────────────────────────────────────────
 
-test("reads the copy marker, and only Buzz's", () => {
+test("reads the copy marker, and only Mira's", () => {
   assert.equal(
     getBuzzCopyKind('<span data-buzz-copy="markdown">hi</span>'),
     "markdown",
@@ -153,7 +153,7 @@ test("reads the copy marker, and only Buzz's", () => {
 
 // ── parseMentionClipboardRecords ──────────────────────────────────────
 
-test("recovers records from a Buzz copy", () => {
+test("recovers records from a Mira copy", () => {
   const records = parseMentionClipboardRecords(
     buildMentionClipboardHtml({
       text: "@John Smith and @Fizz",

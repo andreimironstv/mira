@@ -5026,7 +5026,7 @@ fn delivery_receipt_line(channel_id: Uuid, event_ids: &HashSet<String>) -> Strin
     let mut event_ids: Vec<&str> = event_ids.iter().map(String::as_str).collect();
     event_ids.sort_unstable();
     format!(
-        "turn delivered Buzz events for channel {channel_id}: {}",
+        "turn delivered Mira events for channel {channel_id}: {}",
         event_ids.join(",")
     )
 }
@@ -5708,7 +5708,7 @@ pub(crate) mod tests {
 
         assert_eq!(
             delivery_receipt_line(channel_id, &event_ids),
-            format!("turn delivered Buzz events for channel {channel_id}: alpha,beta")
+            format!("turn delivered Mira events for channel {channel_id}: alpha,beta")
         );
     }
 

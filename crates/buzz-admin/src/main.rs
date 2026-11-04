@@ -44,7 +44,7 @@ use sqlx::Row;
 use tracing::warn;
 
 #[derive(Parser)]
-#[command(name = "buzz-admin", about = "Buzz instance administration")]
+#[command(name = "buzz-admin", about = "Mira instance administration")]
 struct Cli {
     #[command(subcommand)]
     command: Command,
@@ -109,7 +109,7 @@ enum Command {
         #[arg(long, default_value_t = buzz_db::partition::PARTITION_MANAGER_MONTHS_AHEAD)]
         months_ahead: u32,
     },
-    /// Inspect deployment-wide Buzz product feedback.
+    /// Inspect deployment-wide Mira product feedback.
     ProductFeedback {
         #[command(subcommand)]
         command: ProductFeedbackCommand,

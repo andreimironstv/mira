@@ -354,7 +354,7 @@ mod tests {
 
     #[tokio::test]
     async fn discover_returns_origin_when_public_admin_api_advertised() {
-        let body = r#"{"name":"Buzz Relay","supported_nips":[1,11],"admin_api":"https://admin.example.com"}"#;
+        let body = r#"{"name":"Mira Relay","supported_nips":[1,11],"admin_api":"https://admin.example.com"}"#;
         let addr = serve_sequence(vec![(
             "200 OK",
             "Content-Type: application/nostr+json\r\n",
@@ -380,7 +380,7 @@ mod tests {
 
     #[tokio::test]
     async fn discover_returns_none_when_admin_api_absent() {
-        let body = r#"{"name":"Buzz Relay","supported_nips":[1,11]}"#;
+        let body = r#"{"name":"Mira Relay","supported_nips":[1,11]}"#;
         let addr = serve_sequence(vec![(
             "200 OK",
             "Content-Type: application/nostr+json\r\n",
@@ -560,7 +560,7 @@ mod tests {
 
     #[tokio::test]
     async fn discover_reads_a_normal_nip11_document() {
-        let body = br#"{"name":"Buzz Relay","supported_nips":[1,11],"admin_api":"https://admin.example.com"}"#;
+        let body = br#"{"name":"Mira Relay","supported_nips":[1,11],"admin_api":"https://admin.example.com"}"#;
         let head = format!(
             "HTTP/1.1 200 OK\r\nContent-Type: application/nostr+json\r\nContent-Length: {}\r\nConnection: close\r\n\r\n",
             body.len()

@@ -26,9 +26,9 @@ test("model discovery status names missing OpenAI-compatible credentials", () =>
   assert.match(status?.message ?? "", /OpenAI models/);
 });
 
-test("Buzz shared compute names the empty state and next action", () => {
+test("Mira shared compute names the empty state and next action", () => {
   const status = formatModelDiscoveryErrorStatus(
-    new Error("no Buzz shared compute serving members are available"),
+    new Error("no Mira shared compute serving members are available"),
     "relay-mesh",
   );
 
@@ -37,9 +37,9 @@ test("Buzz shared compute names the empty state and next action", () => {
   assert.match(status?.message ?? "", /Settings > Compute/);
 });
 
-test("Buzz shared compute distinguishes relay lookup failures", () => {
+test("Mira shared compute distinguishes relay lookup failures", () => {
   const status = formatModelDiscoveryErrorStatus(
-    new Error("Buzz shared compute model discovery failed: relay offline"),
+    new Error("Mira shared compute model discovery failed: relay offline"),
     "relay-mesh",
   );
 
@@ -48,9 +48,9 @@ test("Buzz shared compute distinguishes relay lookup failures", () => {
   assert.match(status?.message ?? "", /relay connection/);
 });
 
-test("Buzz shared compute names a missing relay member roster", () => {
+test("Mira shared compute names a missing relay member roster", () => {
   const status = formatModelDiscoveryErrorStatus(
-    new Error("Buzz shared compute is waiting for the current member roster"),
+    new Error("Mira shared compute is waiting for the current member roster"),
     "relay-mesh",
   );
 

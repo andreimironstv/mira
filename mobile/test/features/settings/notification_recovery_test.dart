@@ -30,7 +30,7 @@ void main() {
       debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
       addTearDown(() => debugDefaultTargetPlatformOverride = null);
       PackageInfo.setMockInitialValues(
-        appName: 'Buzz',
+        appName: 'Mira',
         packageName: 'buzz',
         version: '1.0.0',
         buildNumber: '1',

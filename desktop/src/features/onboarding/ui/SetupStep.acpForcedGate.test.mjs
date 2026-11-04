@@ -288,7 +288,7 @@ describe("SetupStep cached-ready revalidation", () => {
     queryClient.clear();
   });
 
-  it("hands Buzz directly to API config while forced discovery is pending", async () => {
+  it("hands Mira directly to API config while forced discovery is pending", async () => {
     const queryClient = makeQueryClient();
     queryClient.setQueryData(acpRuntimesQueryKey, [
       catalogEntry("buzz-agent", "not_applicable"),
@@ -325,7 +325,7 @@ describe("SetupStep cached-ready revalidation", () => {
     assert.deepEqual(
       nextCalls,
       [[["buzz-agent"], "method"]],
-      "Buzz API configuration does not wait for runtime discovery",
+      "Mira API configuration does not wait for runtime discovery",
     );
 
     await act(async () => {

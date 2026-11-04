@@ -34,7 +34,7 @@ void main() {
         content: jsonEncode({
           'name': 'alice',
           'display_name': 'Alice',
-          'about': 'Building Buzz',
+          'about': 'Building Mira',
           'picture': 'https://relay.example/alice.png',
           'nip05': 'alice@example.com',
           'custom': 'preserve-me',
@@ -82,7 +82,7 @@ void main() {
         jsonDecode(relaySession.published.single.content)
             as Map<String, dynamic>;
     expect(content['display_name'], 'Alice L');
-    expect(content['about'], 'Building Buzz');
+    expect(content['about'], 'Building Mira');
     expect(content['picture'], 'https://relay.example/alice.png');
     expect(content['nip05'], 'alice@example.com');
     expect(content['custom'], 'preserve-me');
@@ -183,7 +183,7 @@ void main() {
         content: jsonEncode({
           'name': 'legacy-alice',
           'display_name': 'Alice',
-          'about': 'Building Buzz',
+          'about': 'Building Mira',
         }),
         sig: 'sig',
       ),
@@ -197,7 +197,7 @@ void main() {
     final content =
         jsonDecode(relaySession.published.single.content)
             as Map<String, dynamic>;
-    expect(content, {'about': 'Building Buzz'});
+    expect(content, {'about': 'Building Mira'});
     final profile = container.read(profileProvider).requireValue!;
     expect(profile.displayName, isNull);
     // The exact compact label is pinned; its npub shape is covered by the
